@@ -1,0 +1,23 @@
+[gd_scene format=2]
+
+[node name="Node" type="Node"]
+
+[node name="psxLayer" type="CanvasLayer" parent="."]
+
+[node name="blurPP" type="ViewportContainer" parent="psxLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Viewport" type="Viewport" parent="psxLayer/blurPP"]
+
+[node name="lcdPP" type="ViewportContainer" parent="psxLayer/blurPP/Viewport"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Viewport" type="Viewport" parent="psxLayer/blurPP/Viewport/lcdPP"]
+
+[node name="ditherPP" type="ViewportContainer" parent="psxLayer/blurPP/Viewport/lcdPP/Viewport"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Viewport" type="Viewport" parent="psxLayer/blurPP/Viewport/lcdPP/Viewport/ditherPP"]
