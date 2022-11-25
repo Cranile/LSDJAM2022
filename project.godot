@@ -81,7 +81,13 @@ _global_script_class_icons={
 [application]
 
 config/name="LSDJam2022"
+run/main_scene="res://scenes/maps/main.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=960
+window/size/height=720
 
 [editor_plugins]
 

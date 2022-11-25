@@ -1,23 +1,63 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://addons/godot-psx-style-demo-master/post_process/pp_lcd_mat.tres" type="Material" id=1]
+[ext_resource path="res://addons/godot-psx-style-demo-master/post_process/pp_dither.tres" type="Material" id=2]
+[ext_resource path="res://addons/godot-psx-style-demo-master/post_process/pp_blur_mat.tres" type="Material" id=3]
+[ext_resource path="res://scenes/maps/testChamber.tscn" type="PackedScene" id=4]
 
 [node name="Node" type="Node"]
 
-[node name="psxLayer" type="CanvasLayer" parent="."]
+[node name="GUIlayer" type="CanvasLayer" parent="."]
 
-[node name="blurPP" type="ViewportContainer" parent="psxLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="PSXLayer" type="CanvasLayer" parent="."]
+layer = 0
 
-[node name="Viewport" type="Viewport" parent="psxLayer/blurPP"]
+[node name="BlurPostProcess" type="ViewportContainer" parent="PSXLayer"]
+material = ExtResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
 
-[node name="lcdPP" type="ViewportContainer" parent="psxLayer/blurPP/Viewport"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Viewport" type="Viewport" parent="PSXLayer/BlurPostProcess"]
+size = Vector2( 960, 720 )
+handle_input_locally = false
+render_target_update_mode = 3
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
 
-[node name="Viewport" type="Viewport" parent="psxLayer/blurPP/Viewport/lcdPP"]
+[node name="LCDOverlay" type="ViewportContainer" parent="PSXLayer/BlurPostProcess/Viewport"]
+material = ExtResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="ditherPP" type="ViewportContainer" parent="psxLayer/blurPP/Viewport/lcdPP/Viewport"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Viewport" type="Viewport" parent="PSXLayer/BlurPostProcess/Viewport/LCDOverlay"]
+size = Vector2( 960, 720 )
+handle_input_locally = false
+render_target_update_mode = 3
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
 
-[node name="Viewport" type="Viewport" parent="psxLayer/blurPP/Viewport/lcdPP/Viewport/ditherPP"]
+[node name="DitherBanding" type="ViewportContainer" parent="PSXLayer/BlurPostProcess/Viewport/LCDOverlay/Viewport"]
+material = ExtResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+stretch = true
+stretch_shrink = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="PSXLayer/BlurPostProcess/Viewport/LCDOverlay/Viewport/DitherBanding"]
+size = Vector2( 320, 240 )
+handle_input_locally = false
+render_target_update_mode = 3
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+
+[node name="testChamber" parent="PSXLayer/BlurPostProcess/Viewport/LCDOverlay/Viewport/DitherBanding/Viewport" instance=ExtResource( 4 )]
