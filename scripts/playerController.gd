@@ -1,6 +1,6 @@
 extends KinematicBody
 
-var mouse_sens = 0.03 #camera movement speed
+var mouse_sens = 0.05 #camera movement speed
 var move_speed = 10 # player walking speed
 var gravity = 20 # gravity strenght
 
@@ -8,7 +8,13 @@ var direction = Vector3()
 var gravity_vec = Vector3()
 var movement = Vector3()
 
+var prevent_move = false
+var step_rate = 0.5 #the speed at which step sound play
+
 onready var head = get_node("%plHead")
+onready var step_timer = get_node("%plStep_timer")
+onready var audioStep = get_node("%plAudioStep")
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -22,6 +28,9 @@ func _input(event):
 		else:
 			Input.mouse_mode= Input.MOUSE_MODE_CAPTURED
 	
+	# prevent player movement (except escape)
+	if (prevent_move):
+		return;
 	# Camera movement
 	if(event) is InputEventMouseMotion:
 		rotate_y(deg2rad(-event.relative.x * mouse_sens))
@@ -31,6 +40,14 @@ func _input(event):
 func _physics_process(delta):
 	direction = Vector3()
 	
+	# prevent player movement
+	if (prevent_move):
+		return;
+	
+	#interact with things
+	if Input.is_action_just_pressed("interact"):
+		print("interact")
+
 	#Gravity
 	if (!is_on_floor()):
 		gravity_vec += Vector3.DOWN * gravity * delta;
@@ -48,6 +65,12 @@ func _physics_process(delta):
 	elif (Input.is_action_pressed("move_right")):
 		direction += transform.basis.x
 		
+	if(direction != Vector3.ZERO):
+		if(step_timer.time_left <= 0):
+			audioStep.pitch_scale = rand_range(0.9,1.4)
+			audioStep.play()
+			step_timer.start(step_rate)
+	
 	direction = direction.normalized()
 	var vel = direction * move_speed
 	movement.z = vel.z  + gravity_vec.z
