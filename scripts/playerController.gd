@@ -24,8 +24,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _input(event):
-	#openCloseMenu
-	
+
 	# prevent player movement (except escape)
 	if (prevent_move):
 		return;
