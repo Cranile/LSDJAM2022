@@ -15,18 +15,16 @@ onready var head = get_node("%plHead")
 onready var step_timer = get_node("%plStep_timer")
 onready var audioStep = get_node("%plAudioStep")
 
+var main;
 
 func _ready():
+	main = get_tree().get_nodes_in_group("main")[0]
+	main.setPlayer(self)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pass # Replace with function body.
 
 func _input(event):
 	#openCloseMenu
-	if Input.is_action_just_pressed("escape"):
-		if(Input.mouse_mode == Input.MOUSE_MODE_CAPTURED):
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			Input.mouse_mode= Input.MOUSE_MODE_CAPTURED
 	
 	# prevent player movement (except escape)
 	if (prevent_move):

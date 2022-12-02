@@ -10,3 +10,9 @@ func _ready():
 func _on_Button_pressed():
 	print("test btn")
 	pass # Replace with function body.
+
+func menuToggle():
+	if (mainMenu.visible):
+		mainMenu.hide()
+		return;
+	mainMenu.show()
