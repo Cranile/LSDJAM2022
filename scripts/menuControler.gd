@@ -4,13 +4,18 @@ onready var mainMenu = $mainMenu
 onready var mainSection = $mainMenu/mainSection
 onready var optionSection = $mainMenu/optionSection
 onready var creditSection = $mainMenu/creditSection
+onready var scrollContainer = $mainMenu/optionSection/ScrollContainer
 
+onready var mouseController = $mainMenu/optionSection/ScrollContainer/VBoxContainer/mouseSlider
+
+var mainScript;
 func _ready():
 	mainMenu.hide()
 	mainSection.hide()
 	optionSection.hide()
 	creditSection.hide()
-	
+	mainScript = get_owner()
+
 ##toggle the entire menu window
 func menuToggle():
 	if (mainMenu.visible):
@@ -19,6 +24,7 @@ func menuToggle():
 		optionToggle(false)
 		creditToggle(false)
 		return;
+	
 	mainMenu.show()
 	mainToggle(false)
 	optionToggle(true)
@@ -28,6 +34,7 @@ func menuToggle():
 func openOptionSection():
 	mainToggle(true)
 	optionToggle(false)
+
 ## when this is called the main section will open and the options section will close
 func closeOptionSection():
 	optionToggle(true)
@@ -37,6 +44,7 @@ func closeOptionSection():
 func openCreditSection():
 	mainToggle(true)
 	creditToggle(false)
+
 ## when this is called the main section will open and the credits section will close
 func closeCreditSection():
 	creditToggle(true)
@@ -55,6 +63,7 @@ func optionToggle(hide):
 		optionSection.hide()
 		return;
 	optionSection.show()
+	updateScrollValue()
 
 func creditToggle(hide):
 	if (hide):
@@ -67,21 +76,17 @@ func _on_buttonOptions_pressed():
 	openOptionSection()
 	pass # Replace with function body.
 
-
 func _on_buttonCredits_pressed():
 	openCreditSection()
-	pass # Replace with function body.
-
 
 func _on_backFromOption_pressed():
 	closeOptionSection()
-	pass # Replace with function body.
-
 
 func _on_backFromCredits_pressed():
-	closeCreditSection()
-	pass # Replace with function body.
+	closeCreditSection();
 
 func _on_buttonExit_pressed():
-	get_tree().quit()
-	pass # Replace with function body.
+	get_tree().quit();
+
+func updateScrollValue():
+	mouseController.setCurrentValue( mainScript.getSensitivity() )

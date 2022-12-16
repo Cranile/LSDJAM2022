@@ -8,13 +8,14 @@ var currentLevel; #holds the level the player is currently in
 
 var levelIndex = 0;
 
-var mouse_sensitivity = 0.03;
+var mouse_sensitivity = 0.05;
 
 var player;
 var mainMenu;
 var PSXLayer;
 var topViewport;
 func _ready():
+	print("main ready")
 	if (mapContainer.get_child_count() != 0):
 		print("has child")
 	
@@ -33,6 +34,7 @@ func _input(event):
 			Input.mouse_mode= Input.MOUSE_MODE_CAPTURED
 			player.prevent_move = false
 		inputToogle()
+		
 		mainMenu.menuToggle()
 
 func changeMap():
@@ -41,7 +43,14 @@ func changeMap():
 
 func setPlayer(param):
 	player = param
-	print("player has been set to", player)
+	setSensitivity()
+func getPlayer():
+	return player;
+
+func setSensitivity():
+	player.mouse_sens = mouse_sensitivity
+func getSensitivity():
+	return mouse_sensitivity;
 
 func inputToogle():
 	##go to the top viewport and disable/enable the option for input
