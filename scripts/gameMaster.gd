@@ -2,7 +2,8 @@ extends Node
 
 onready var mapContainer = get_node("%mapContainer") #save the node that will contain the current map
 onready var firstScene =  load("res://scenes/maps/testChamber.tscn") #the first scene on the game
-
+##
+##res://scenes/maps/testChamber.tscn
 var levelList = []
 var currentLevel; #holds the level the player is currently in
 
@@ -43,7 +44,9 @@ func changeMap():
 
 func setPlayer(param):
 	player = param
+	player.connect("crossHairActive", self, "crossHairChange")
 	setSensitivity()
+
 func getPlayer():
 	return player;
 
@@ -56,3 +59,6 @@ func inputToogle():
 	##go to the top viewport and disable/enable the option for input
 	##this will prevent the player for moving but will allow the UI to grab input
 	topViewport.gui_disable_input = !topViewport.gui_disable_input
+
+func crossHairChange(boolean):
+	mainMenu.changeCrossHair(boolean)

@@ -1,0 +1,255 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://cityBlockout.glb" type="PackedScene" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 50, 0.1, 50 )
+
+[node name="cityBlockout" instance=ExtResource( 1 )]
+
+[node name="street083" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.98015, -0.197609, -0.744038 )
+
+[node name="house8001" parent="." index="1"]
+transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, 45.9764, 0, 16.2558 )
+
+[node name="house6001" parent="." index="2"]
+transform = Transform( 1.19209e-07, -1.19209e-07, -1, 1, 0, 1.19209e-07, 0, -1, 1.19209e-07, 23.9764, 1.35231, 7.20685 )
+
+[node name="house10001" parent="." index="3"]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 26.0578, -0.00324535, 25.2165 )
+
+[node name="grass" parent="." index="4"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 27.9764, 0, 21.2558 )
+
+[node name="grass001" parent="." index="5"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 27.9764, 0, 25.2558 )
+
+[node name="grass002" parent="." index="6"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 27.9764, 0, 29.2558 )
+
+[node name="grass003" parent="." index="7"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 23.9764, 0, 21.2558 )
+
+[node name="grass004" parent="." index="8"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 23.9764, 0, 29.2558 )
+
+[node name="house2001" parent="." index="9"]
+transform = Transform( 0, 0, 1, 1, 0, 0, 0, 1, 0, 11.9764, 0, 31.2558 )
+
+[node name="grass005" parent="." index="10"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 19.9764, 0, 29.2558 )
+
+[node name="grass006" parent="." index="11"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 15.9764, 0, 29.2558 )
+
+[node name="house4001" parent="." index="12"]
+transform = Transform( 0, 0, 1, 1, 0, 0, 0, 1, 0, 7.95908, 1.50153, 31.2672 )
+
+[node name="building5001" parent="." index="13"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.0236, 15, 54.7507 )
+
+[node name="building4001" parent="." index="14"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9764, 15, -56.3107 )
+
+[node name="building2001" parent="." index="15"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.9764, 15, -40.7442 )
+
+[node name="house6002" parent="." index="16"]
+transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, 49.9317, 1.35231, 24.2558 )
+
+[node name="Plane017" parent="." index="17"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 47.9764, 0, 20.2558 )
+
+[node name="Plane018" parent="." index="18"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 47.9764, 0, 24.2558 )
+
+[node name="Plane019" parent="." index="19"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 47.9764, 0, 28.2558 )
+
+[node name="hedgeBox001" parent="." index="20"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, 49.4251, 0.5, 21.2298 )
+
+[node name="hedgeBox002" parent="." index="21"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1, 49.4251, 0.5, 27.2298 )
+
+[node name="house5001" parent="." index="22"]
+transform = Transform( 0, 0, 1, 1, 0, 0, 0, 1, 0, 59.9764, 1.35231, 34.2451 )
+
+[node name="wall012" parent="." index="23"]
+transform = Transform( 0, -1, 0, 1, 0, 0, 0, 0, 1, 61.9764, 0, 36.2558 )
+
+[node name="house5002" parent="." index="24"]
+transform = Transform( 0, 0, -1, 1, 0, 0, 0, -1, 0, 47.9764, 1.35231, 36.2451 )
+
+[node name="house7001" parent="." index="25"]
+transform = Transform( 0, 0, -1, 1, 0, 0, 0, -1, 0, 25.9322, 1.35231, 47.0058 )
+
+[node name="house7002" parent="." index="26"]
+transform = Transform( 0, 0, -1, 1, 0, 0, 0, -1, 0, 13.9322, 1.35231, 47.0058 )
+
+[node name="grass007" parent="." index="27"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -28.0236, 0, -18.7442 )
+
+[node name="grass008" parent="." index="28"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -32.0236, 0, -18.7442 )
+
+[node name="grass009" parent="." index="29"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -20.0236, 0, -18.7442 )
+
+[node name="grass010" parent="." index="30"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -24.0236, 0, -18.7442 )
+
+[node name="grass011" parent="." index="31"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -12.0236, 0, -18.7442 )
+
+[node name="grass012" parent="." index="32"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -16.0236, 0, -18.7442 )
+
+[node name="grass013" parent="." index="33"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -28.0236, 0, -22.7442 )
+
+[node name="grass014" parent="." index="34"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -32.0236, 0, -22.7442 )
+
+[node name="grass015" parent="." index="35"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -20.0236, 0, -22.7442 )
+
+[node name="grass016" parent="." index="36"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -24.0236, 0, -22.7442 )
+
+[node name="grass017" parent="." index="37"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -12.0236, 0, -22.7442 )
+
+[node name="grass018" parent="." index="38"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -16.0236, 0, -22.7442 )
+
+[node name="grass019" parent="." index="39"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -28.0236, 0, -26.7442 )
+
+[node name="grass020" parent="." index="40"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -32.0236, 0, -26.7442 )
+
+[node name="grass021" parent="." index="41"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -20.0236, 0, -26.7442 )
+
+[node name="grass022" parent="." index="42"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -24.0236, 0, -26.7442 )
+
+[node name="grass023" parent="." index="43"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -12.0236, 0, -26.7442 )
+
+[node name="grass024" parent="." index="44"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -16.0236, 0, -26.7442 )
+
+[node name="grass025" parent="." index="45"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -28.0236, 0, -30.7442 )
+
+[node name="grass026" parent="." index="46"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -32.0236, 0, -30.7442 )
+
+[node name="grass027" parent="." index="47"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -20.0236, 0, -30.7442 )
+
+[node name="grass028" parent="." index="48"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -24.0236, 0, -30.7442 )
+
+[node name="grass029" parent="." index="49"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -12.0236, 0, -30.7442 )
+
+[node name="grass030" parent="." index="50"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -16.0236, 0, -30.7442 )
+
+[node name="vereda002" parent="." index="51"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4764, 0, 37.2558 )
+
+[node name="vereda003" parent="." index="52"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.4764, 0, 33.2558 )
+
+[node name="vereda004" parent="." index="53"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.4764, 0, 37.2558 )
+
+[node name="vereda005" parent="." index="54"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.4764, 0, 33.2558 )
+
+[node name="vereda006" parent="." index="55"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.4764, 0, 37.2558 )
+
+[node name="vereda007" parent="." index="56"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.4764, 0, 33.2558 )
+
+[node name="vereda008" parent="." index="57"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.4764, 0, 37.2558 )
+
+[node name="vereda009" parent="." index="58"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.4764, 0, 33.2558 )
+
+[node name="vereda010" parent="." index="59"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.4764, 0, 37.2558 )
+
+[node name="vereda011" parent="." index="60"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 59.4764, 0, 33.2558 )
+
+[node name="vereda012" parent="." index="61"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4764, 0, 37.2558 )
+
+[node name="vereda013" parent="." index="62"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.4764, 0, 33.2558 )
+
+[node name="playerHouse" parent="." index="63"]
+transform = Transform( 4, 0, 0, 0, 2, 0, 0, 0, 4, 41.9123, 2.01178, 51.2198 )
+
+[node name="trainStation" parent="." index="64"]
+transform = Transform( 6, 0, 0, 0, 2, 0, 0, 0, 6, -55.7414, 1.86829, -0.681927 )
+
+[node name="supermarket" parent="." index="65"]
+transform = Transform( 4, 0, 0, 0, 2, 0, 0, 0, 4, 25.9619, 1.97318, -12.726 )
+
+[node name="comicStore" parent="." index="66"]
+transform = Transform( 4, 0, 0, 0, 2, 0, 0, 0, 4, -14.0552, 1.93255, 11.2603 )
+
+[node name="grass031" parent="." index="67"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -28.0236, 0, -14.7442 )
+
+[node name="grass032" parent="." index="68"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -32.0236, 0, -14.7442 )
+
+[node name="grass033" parent="." index="69"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -20.0236, 0, -14.7442 )
+
+[node name="grass034" parent="." index="70"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -24.0236, 0, -14.7442 )
+
+[node name="grass035" parent="." index="71"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -12.0236, 0, -14.7442 )
+
+[node name="grass036" parent="." index="72"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -16.0236, 0, -14.7442 )
+
+[node name="grass037" parent="." index="73"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -28.0236, 0, -10.7442 )
+
+[node name="grass038" parent="." index="74"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -32.0236, 0, -10.7442 )
+
+[node name="grass039" parent="." index="75"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -20.0236, 0, -10.7442 )
+
+[node name="grass040" parent="." index="76"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -24.0236, 0, -10.7442 )
+
+[node name="grass041" parent="." index="77"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -12.0236, 0, -10.7442 )
+
+[node name="grass042" parent="." index="78"]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -16.0236, 0, -10.7442 )
+
+[node name="pharmacy" parent="." index="79"]
+transform = Transform( 4, 0, 0, 0, 2, 0, 0, 0, 4, -30.02, 1.78908, -52.7787 )
+
+[node name="StaticBody" type="StaticBody" parent="." index="80"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -86, 0, -36 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 83.9764, 0, 35.2558 )
+shape = SubResource( 1 )

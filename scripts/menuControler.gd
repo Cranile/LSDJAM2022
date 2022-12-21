@@ -7,14 +7,17 @@ onready var creditSection = $mainMenu/creditSection
 onready var scrollContainer = $mainMenu/optionSection/ScrollContainer
 
 onready var mouseController = $mainMenu/optionSection/ScrollContainer/VBoxContainer/mouseSlider
+onready var crossHair = get_node("crossHair")
 
 var mainScript;
+
 func _ready():
 	mainMenu.hide()
 	mainSection.hide()
 	optionSection.hide()
 	creditSection.hide()
 	mainScript = get_owner()
+	changeCrossHair(false)
 
 ##toggle the entire menu window
 func menuToggle():
@@ -90,3 +93,10 @@ func _on_buttonExit_pressed():
 
 func updateScrollValue():
 	mouseController.setCurrentValue( mainScript.getSensitivity() )
+
+func changeCrossHair(boolean):
+	if(!boolean):
+		crossHair.color = "#ffffff";
+	else:
+		crossHair.color = "#ff0000";
+		

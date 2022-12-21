@@ -14,9 +14,12 @@ var step_rate = 0.5 #the speed at which step sound play
 onready var head = get_node("%plHead")
 onready var step_timer = get_node("%plStep_timer")
 onready var audioStep = get_node("%plAudioStep")
+onready var raycast = get_node("Spatial/plHead/raycast")
 
 var main;
 
+signal crossHairActive(active)
+var isLookingInteractable = false
 func _ready():
 	main = get_tree().get_nodes_in_group("main")[0]
 	main.setPlayer(self)
@@ -28,11 +31,27 @@ func _input(event):
 	# prevent player movement (except escape)
 	if (prevent_move):
 		return;
+		#interact with things
+	if Input.is_action_just_pressed("interact"):
+		if(isLookingInteractable):
+			print("see object",raycast.get_collider())
+		print("interact")
+	
 	# Camera movement
 	if(event) is InputEventMouseMotion:
 		rotate_y(deg2rad(-event.relative.x * mouse_sens))
 		head.rotate_x(deg2rad(-event.relative.y * mouse_sens))
 		head.rotation.x = clamp(head.rotation.x, deg2rad(-89), deg2rad(89))
+
+func _process(delta):
+	if raycast.is_colliding():
+		##print("collide")
+		if(!isLookingInteractable):
+			isLookingInteractable = true
+			emit_signal("crossHairActive",true)
+	elif(isLookingInteractable):
+		isLookingInteractable = false
+		emit_signal("crossHairActive",false)
 
 func _physics_process(delta):
 	direction = Vector3()
@@ -41,12 +60,8 @@ func _physics_process(delta):
 	if (prevent_move):
 		return;
 	
-	#interact with things
-	if Input.is_action_just_pressed("interact"):
-		print("interact")
-
 	#Gravity
-	if (!is_on_floor()):
+	if not is_on_floor():
 		gravity_vec += Vector3.DOWN * gravity * delta;
 	else:
 		gravity_vec = -get_floor_normal() * gravity
