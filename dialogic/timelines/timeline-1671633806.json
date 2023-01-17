@@ -21,19 +21,35 @@
 			"z_index": 0
 		},
 		{
-			"character": "character-1671633813.json",
-			"event_id": "dialogic_001",
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
 			"portrait": "",
-			"text": "test message"
+			"question": "test"
 		},
 		{
-			"event_id": "dialogic_022",
-			"transition_duration": 1
+			"choice": "test",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "test",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
 		}
 	],
 	"metadata": {
 		"dialogic-version": "1.4.5",
 		"file": "timeline-1671633806.json",
-		"name": "test"
+		"name": "testChoice"
 	}
 }

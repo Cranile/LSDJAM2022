@@ -1,14 +1,71 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://models/skybox.glb" type="PackedScene" id=1]
-[ext_resource path="res://textures/skybox2D.png" type="Texture" id=2]
+[ext_resource path="res://shaders/skybox.tres" type="Material" id=2]
+[ext_resource path="res://scripts/skyboxControler.gd" type="Script" id=3]
 
-[sub_resource type="SpatialMaterial" id=1]
-albedo_texture = ExtResource( 2 )
+[sub_resource type="PlaneMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 1, 0.631373, 0, 1 )
+emission_enabled = true
+emission = Color( 1, 0.823529, 0.341176, 1 )
+emission_energy = 0.84
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 1, 0.196087, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+emission_enabled = true
+emission = Color( 1, 1, 1, 1 )
+emission_energy = 2.06
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.24413, 0.181828, 0.329244 )
 
 [node name="skybox" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
 
 [node name="slybox" parent="." index="0"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 layers = 256
-material/0 = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="astralArea" type="Spatial" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2, 0 )
+
+[node name="sun" type="MeshInstance" parent="astralArea" index="0"]
+transform = Transform( 0.249, 0, 0, 0, -4.1351e-08, 0.231, 0, -0.946, -1.00973e-08, 0, 0, 1.92329 )
+layers = 256
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="sunArea" type="Area" parent="astralArea/sun" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="astralArea/sun/sunArea" index="0"]
+shape = SubResource( 5 )
+disabled = true
+
+[node name="moon" type="MeshInstance" parent="astralArea" index="1"]
+transform = Transform( 0.249, 0, 0, 0, -4.1351e-08, -0.231, 0, 0.946, -1.00973e-08, 0, 0, -1.94291 )
+layers = 256
+mesh = SubResource( 2 )
+material/0 = SubResource( 4 )
+
+[node name="atardecer" type="Area" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61813, 2.06273 )
+
+[node name="CollisionShape" type="CollisionShape" parent="atardecer" index="0"]
+shape = SubResource( 6 )
+
+[node name="anochecer" type="Area" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94316, 2.06273 )
+
+[node name="CollisionShape" type="CollisionShape" parent="anochecer" index="0"]
+shape = SubResource( 6 )
+
+[connection signal="area_entered" from="astralArea/sun/sunArea" to="." method="_on_sunArea_area_entered"]

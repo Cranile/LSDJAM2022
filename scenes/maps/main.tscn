@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://addons/godot-psx-style-demo-master/post_process/pp_lcd_mat.tres" type="Material" id=1]
 [ext_resource path="res://addons/godot-psx-style-demo-master/post_process/pp_dither.tres" type="Material" id=2]
@@ -8,9 +8,40 @@
 [ext_resource path="res://simpleFont.tres" type="DynamicFont" id=6]
 [ext_resource path="res://scripts/mouseSlider.gd" type="Script" id=7]
 [ext_resource path="res://scripts/centerContainer.gd" type="Script" id=8]
+[ext_resource path="res://textures/UI/point.png" type="Texture" id=9]
+[ext_resource path="res://scripts/crossHair.gd" type="Script" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "blink"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("top:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -720 ), Vector2( 0, -360 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("bottom:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 720 ), Vector2( 0, 360 ) ]
+}
 
 [node name="main" type="Node" groups=["main"]]
 script = ExtResource( 4 )
+scenesList = [ "res://scenes/maps/testChamber.tscn", "res://scenes/maps/dream1.tscn", "res://scenes/maps/dream2.tscn", "res://scenes/maps/dream3.tscn" ]
 
 [node name="PSXLayer" type="CanvasLayer" parent="."]
 layer = 0
@@ -68,6 +99,78 @@ unique_name_in_owner = true
 
 [node name="GUIlayer" type="CanvasLayer" parent="."]
 script = ExtResource( 5 )
+
+[node name="crossHair" type="TextureRect" parent="GUIlayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+texture = ExtResource( 9 )
+script = ExtResource( 10 )
+
+[node name="computerScreen" type="ColorRect" parent="GUIlayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.364706, 0.937255, 0.482353, 1 )
+
+[node name="desktop" type="ColorRect" parent="GUIlayer/computerScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+
+[node name="internetBrowser" type="ColorRect" parent="GUIlayer/computerScreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -240.0
+margin_top = -240.0
+margin_right = 240.0
+margin_bottom = 240.0
+
+[node name="Label" type="Label" parent="GUIlayer/computerScreen/internetBrowser"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Stuck on life ? out of creativty ? no place to escape to ? Don't despair, Join dreamland.
+You just need to S L E E P"
+autowrap = true
+
+[node name="exitPC" type="Button" parent="GUIlayer/computerScreen/internetBrowser"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -57.0
+margin_top = -43.0
+text = "Exit"
+
+[node name="eyes" type="Control" parent="GUIlayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="top" type="ColorRect" parent="GUIlayer/eyes"]
+anchor_right = 1.0
+margin_top = -720.0
+rect_min_size = Vector2( 0, 480 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="bottom" type="ColorRect" parent="GUIlayer/eyes"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 959.999
+rect_min_size = Vector2( 0, 500 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GUIlayer/eyes"]
+anims/blink = SubResource( 1 )
 
 [node name="mainMenu" type="ColorRect" parent="GUIlayer"]
 visible = false
@@ -263,16 +366,8 @@ margin_right = 166.0
 custom_fonts/font = ExtResource( 6 )
 text = "Back"
 
-[node name="crossHair" type="ColorRect" parent="GUIlayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -2.5
-margin_top = -2.5
-margin_right = 2.5
-margin_bottom = 2.5
-
+[connection signal="pressed" from="GUIlayer/computerScreen/internetBrowser/exitPC" to="GUIlayer" method="_on_exitPC_pressed"]
+[connection signal="animation_finished" from="GUIlayer/eyes/AnimationPlayer" to="GUIlayer" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="GUIlayer/mainMenu/mainSection/buttonsContainer/buttonOptions" to="GUIlayer" method="_on_buttonOptions_pressed"]
 [connection signal="pressed" from="GUIlayer/mainMenu/mainSection/buttonsContainer/buttonCredits" to="GUIlayer" method="_on_buttonCredits_pressed"]
 [connection signal="pressed" from="GUIlayer/mainMenu/mainSection/buttonsContainer/buttonExit" to="GUIlayer" method="_on_buttonExit_pressed"]

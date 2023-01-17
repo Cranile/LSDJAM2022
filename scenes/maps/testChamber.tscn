@@ -1,9 +1,15 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://scenes/npc/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/props/skybox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/skyboxCamera.gd" type="Script" id=3]
-[ext_resource path="res://cityBlockout.tscn" type="PackedScene" id=4]
+[ext_resource path="res://imports/latest.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scripts/prop.gd" type="Script" id=5]
+[ext_resource path="res://scripts/trigger.gd" type="Script" id=6]
+[ext_resource path="res://scripts/stateController.gd" type="Script" id=7]
+[ext_resource path="res://scripts/figure.gd" type="Script" id=8]
+[ext_resource path="res://scripts/bed.gd" type="Script" id=9]
+[ext_resource path="res://scripts/pcController.gd" type="Script" id=10]
 
 [sub_resource type="SpatialMaterial" id=11]
 flags_transparent = true
@@ -12,29 +18,32 @@ albedo_color = Color( 0, 0.243137, 0.972549, 0.545098 )
 [sub_resource type="PlaneMesh" id=10]
 material = SubResource( 11 )
 
-[sub_resource type="PlaneMesh" id=1]
+[sub_resource type="BoxShape" id=15]
+extents = Vector3( 0.870442, 0.528106, 1.576 )
 
-[sub_resource type="SpatialMaterial" id=6]
-albedo_color = Color( 0.819608, 0.819608, 0.819608, 1 )
+[sub_resource type="CubeMesh" id=17]
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.132825, 0.252397, 0.195931 )
 
-[sub_resource type="SpatialMaterial" id=7]
-albedo_color = Color( 0.188235, 0.172549, 0.172549, 1 )
+[sub_resource type="CubeMesh" id=13]
+size = Vector3( 0.2, 0.2, 0.2 )
 
-[sub_resource type="CubeMesh" id=5]
-material = SubResource( 7 )
+[sub_resource type="BoxShape" id=14]
 
-[sub_resource type="BoxShape" id=8]
+[sub_resource type="CubeMesh" id=19]
 
-[sub_resource type="CubeMesh" id=9]
+[sub_resource type="BoxShape" id=20]
 
 [sub_resource type="Environment" id=3]
 ambient_light_color = Color( 1, 1, 1, 1 )
-fog_depth_begin = 0.0
-fog_depth_end = 99.9
+ambient_light_energy = 0.8
+fog_depth_begin = 5.0
+fog_depth_end = 50.0
+fog_depth_curve = 1.1487
 
 [node name="testChamber" type="Spatial"]
+script = ExtResource( 7 )
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 anchor_right = 1.0
@@ -56,43 +65,130 @@ mesh = SubResource( 10 )
 
 [node name="player" parent="ViewportContainer/Viewport" instance=ExtResource( 1 )]
 unique_name_in_owner = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.2631, 2.54122, 38.0377 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 36.9091, 0.960906, 50.4676 )
 
 [node name="map" type="Spatial" parent="ViewportContainer/Viewport"]
 
-[node name="ground" type="MeshInstance" parent="ViewportContainer/Viewport/map"]
-transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0 )
-visible = false
-mesh = SubResource( 1 )
-material/0 = SubResource( 6 )
+[node name="city1" parent="ViewportContainer/Viewport/map" instance=ExtResource( 4 )]
 
-[node name="StaticBody" type="StaticBody" parent="ViewportContainer/Viewport/map/ground"]
+[node name="interactableProps" type="Spatial" parent="ViewportContainer/Viewport/map"]
 
-[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/ground/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.950281, 0 )
-shape = SubResource( 2 )
-
-[node name="map_props" type="Spatial" parent="ViewportContainer/Viewport/map"]
-visible = false
-
-[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/map/map_props"]
-transform = Transform( 1, 0, 0, 0, 5.14739, 0, 0, 0, 7.3, 32.779, 4.87813, 0 )
-mesh = SubResource( 5 )
-
-[node name="cityBlockout" parent="ViewportContainer/Viewport/map" instance=ExtResource( 4 )]
-
-[node name="testDialogue" type="StaticBody" parent="ViewportContainer/Viewport/map/cityBlockout"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.7057, 0, 38.7256 )
-collision_layer = 2
+[node name="desktopPC" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9464, 0.775902, 49.5764 )
+collision_layer = 4
 collision_mask = 0
+script = ExtResource( 10 )
+propName = "PC"
+hasMapchange = null
+newMapIndex = null
+haspickup = null
+hasOpen = null
+hasDialogue = null
+dialogueIndex = null
+hasCustomMethod = true
+methodName = "pcInteraction"
 
-[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/cityBlockout/testDialogue"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.751428, 0 )
-shape = SubResource( 8 )
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/interactableProps/desktopPC"]
+shape = SubResource( 15 )
 
-[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/map/cityBlockout/testDialogue"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.770413, 0 )
-mesh = SubResource( 9 )
+[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/map/interactableProps/desktopPC"]
+transform = Transform( 0.852941, 0, 0, 0, 0.771522, 0, 0, 0, 1.55514, 0, 0, 0 )
+mesh = SubResource( 17 )
+
+[node name="figure1" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps" groups=["figures"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.353, 0.896692, 38.3362 )
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 8 )
+propName = "figure 1"
+haspickup = true
+deleteOnPickup = true
+hasDialogue = true
+dialogues = [ "d1o2" ]
+hasCustomMethod = true
+methodName = "figureUpdate"
+figureID = 1
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/interactableProps/figure1"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/map/interactableProps/figure1"]
+mesh = SubResource( 13 )
+
+[node name="figure2" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps" groups=["figures"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.353, 0.896692, 37.6751 )
+collision_layer = 4
+script = ExtResource( 8 )
+propName = "figure 2"
+haspickup = true
+deleteOnPickup = true
+hasDialogue = true
+dialogues = [ "d1o2" ]
+hasCustomMethod = true
+methodName = "figureUpdate"
+figureID = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/interactableProps/figure2"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/map/interactableProps/figure2"]
+mesh = SubResource( 13 )
+
+[node name="figure3" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps" groups=["figures"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.353, 0.896692, 37.0496 )
+collision_layer = 4
+script = ExtResource( 8 )
+propName = "figure 3"
+haspickup = true
+deleteOnPickup = true
+hasDialogue = true
+dialogues = [ "d1o2" ]
+hasCustomMethod = true
+methodName = "figureUpdate"
+figureID = 3
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/interactableProps/figure3"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/map/interactableProps/figure3"]
+mesh = SubResource( 13 )
+
+[node name="trigger" type="Area" parent="ViewportContainer/Viewport/map/interactableProps"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42.4672, 0.679826, 47.1327 )
+collision_layer = 0
+collision_mask = 16
+script = ExtResource( 6 )
+hasDialogue = true
+dialogues = [ "Trigger1start" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/interactableProps/trigger"]
+shape = SubResource( 14 )
+
+[node name="bed" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.1538, 0.497966, 50.5802 )
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 9 )
+propName = "bed"
+hasDialogue = true
+dialogues = [ "bedDisabled", "bedEnabled" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/interactableProps/bed"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.029785, 0 )
+shape = SubResource( 15 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/map/interactableProps/bed"]
+transform = Transform( 0.836511, 0, 0, 0, 0.475389, 0, 0, 0, 1.52638, 0, 0, 0 )
+mesh = SubResource( 19 )
+
+[node name="storeItems1" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.6909, 0.550353, 36.9027 )
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/interactableProps/storeItems1"]
+shape = SubResource( 20 )
 
 [node name="skyboxCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -22.0863, -0.0790062 )
@@ -101,3 +197,5 @@ script = ExtResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )
+
+[connection signal="body_entered" from="ViewportContainer/Viewport/map/interactableProps/trigger" to="ViewportContainer/Viewport/map/interactableProps/trigger" method="_on_trigger_body_entered"]

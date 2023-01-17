@@ -9,16 +9,25 @@ onready var scrollContainer = $mainMenu/optionSection/ScrollContainer
 onready var mouseController = $mainMenu/optionSection/ScrollContainer/VBoxContainer/mouseSlider
 onready var crossHair = get_node("crossHair")
 
+onready var pcui = $computerScreen
+var isPCON = false
 var mainScript;
 
+onready var eyelidTop = $eyes/top
+onready var eyelidBottom = $eyes/bottom
+var animationPlaySpeed = 1
+signal lidState(state)
+
+var currentDialogue
 func _ready():
 	mainMenu.hide()
 	mainSection.hide()
 	optionSection.hide()
 	creditSection.hide()
+	pcui.hide()
 	mainScript = get_owner()
 	changeCrossHair(false)
-
+	
 ##toggle the entire menu window
 func menuToggle():
 	if (mainMenu.visible):
@@ -55,6 +64,8 @@ func closeCreditSection():
 
 ## enable or disable the main section of the menu (this contains the buttons for the other sections)
 func mainToggle(hide):
+	if (isPCON):
+		closePCui()
 	if (hide):
 		mainSection.hide()
 		return;
@@ -94,9 +105,47 @@ func _on_buttonExit_pressed():
 func updateScrollValue():
 	mouseController.setCurrentValue( mainScript.getSensitivity() )
 
-func changeCrossHair(boolean):
-	if(!boolean):
-		crossHair.color = "#ffffff";
-	else:
-		crossHair.color = "#ff0000";
-		
+func changeCrossHair(type):
+	crossHair.changeCrosshair(type)
+
+func newDialogue(timelineName):
+	currentDialogue = Dialogic.start(timelineName)
+	currentDialogue.connect("timeline_end", self, "endConversation")
+	add_child(currentDialogue)
+
+func endConversation(_timeline_end):
+	mainScript.handleUI()
+	print("conversation end")
+
+func openPCUi():
+	pcui.show()
+	isPCON = true
+func closePCui():
+	pcui.hide()
+	isPCON = false
+
+func eyelidsUpdate(state):
+	print("lids updated: ",state)
+	emit_signal("lidState",false)
+	if state :
+		##anim start
+		animationPlaySpeed = 1
+		$eyes/AnimationPlayer.set_speed_scale(animationPlaySpeed)
+		$eyes/AnimationPlayer.play("blink")
+	else :
+		animationPlaySpeed = 5
+		$eyes/AnimationPlayer.set_speed_scale(animationPlaySpeed)
+		$eyes/AnimationPlayer.play_backwards("blink")
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	print("eyes finished anim")
+	##anim end
+	
+	if (animationPlaySpeed == 1):
+		emit_signal("lidState",true)
+	pass # Replace with function body.
+
+
+func _on_exitPC_pressed():
+	closePCui()
+	pass # Replace with function body.
