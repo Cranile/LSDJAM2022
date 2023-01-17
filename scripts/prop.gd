@@ -57,7 +57,15 @@ func deleteSelf():
 	queue_free()
 	print("delete self")
 
+func enableInteraction():
+	get_node("CollisionShape").set_deferred("disabled",false)
+
 func disableInteraction():
-	print("disable interaction")
 	get_node("CollisionShape").set_deferred("disabled",true)
 
+func debugData():
+	return ("name: "+var2str( propName)  +
+	 "\n" + "mapChange? " + var2str(hasMapchange) + 
+	 "\n" + "pickup? "+var2str(haspickup) +
+	 "\n" + "dialogue? " + var2str(hasDialogue) +
+	 "\n" + "customMethod? " + var2str(hasCustomMethod))

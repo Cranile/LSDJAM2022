@@ -1,5 +1,7 @@
 extends Node
 
+export var debugMode = false
+
 onready var mapContainer = get_node("%mapContainer") #save the node that will contain the current map
 export var scenesList = ["res://scenes/maps/testChamber.tscn"]
 ##export var test : PackedScene
@@ -10,7 +12,7 @@ var figurine = 0 ## what character did the player choose?
 var currentDay = 1 ## what day is the player in
 var isDream = false
 
-var dailyTaskAmmount = [3,2,3] ##how many task you have to complete per day to go to sleep
+var dailyTaskAmmount = [3,3,2] ##how many task you have to complete per day to go to sleep
 var currentDayProgress = 1
 var tasksFinished = false
 
@@ -25,6 +27,7 @@ var player;
 var mainMenu;
 var PSXLayer;
 var topViewport;
+var mapController;
 
 func _ready():
 	print("main ready")
@@ -42,7 +45,8 @@ func _input(_event):
 		mainMenu.menuToggle()
 
 func changeMap(index):
-
+	tasksFinished = false
+	currentDayProgress = 1
 	if(index == -1 || index > scenesList.size()):
 		print("invalid index")
 		return;
@@ -57,7 +61,11 @@ func changeMap(index):
 	currentLevel = scene.instance();
 	mapContainer.add_child(currentLevel)
 	print("new level ", levelIndex)
-
+	if !isDream:
+		mapController = mapContainer.get_child(0)
+		questUpdater()
+	else:
+		mapController = null
 	pass
 
 func goToSleep():
@@ -83,6 +91,9 @@ func setPlayer(param):
 	mainMenu.connect("lidState",player,"lidsUpdated")
 	player.canBlink = isDream
 	setSensitivity()
+	if debugMode:
+		player.connect("interactableName",mainMenu,"debugLabelUpdate")
+		pass
 
 func getPlayer():
 	return player;
@@ -123,24 +134,40 @@ func figureUpdate(selectionINT):
 	emit_signal("figureCollected")
 	currentDayProgress +=1
 	questUpdater()
-	
+
+func itemBought():
+	currentDayProgress +=1
+	questUpdater()
+
 func interactPC():
 	##called when player gets to interact with the pc on day 1
 	print("pc interact")
-	if (currentDay == 1 && currentDayProgress == 2):
+	if (currentDay == 1 || currentDay == 2 ):
+		if (currentDayProgress == 2 ):
+			currentDayProgress +=1
+			questUpdater()
+		if (currentDayProgress >= 2):
+			mainMenu.openPCUi()
+
+func rainTrigger():
+	if (currentDayProgress <= 2):
 		currentDayProgress +=1
 		questUpdater()
-	if (currentDayProgress >= 2):
-		mainMenu.openPCUi()
-	
 
-	
 func questUpdater():
 	print("quest updater called")
 	print("current progres ",currentDayProgress)
+	if(currentDay == 1):
+		print("day 1 quests")
 	if(currentDay == 2):
+		if mapController != null:
+			print("call1")
+			mapController.updateStoreInteraction(true)
+		mainMenu.swapPC()
 		print("day 2 quests")
 	if(currentDay == 3):
+		##enable storm and trigger on house
+		
 		print("day 3 quests")
 	##check if maximum is reach
 	##add new task
@@ -150,3 +177,4 @@ func questUpdater():
 		tasksFinished = true
 		emit_signal("bedUpdate",tasksFinished)
 		return
+

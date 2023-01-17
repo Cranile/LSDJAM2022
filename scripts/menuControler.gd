@@ -19,6 +19,7 @@ var animationPlaySpeed = 1
 signal lidState(state)
 
 var currentDialogue
+var debugLabel 
 func _ready():
 	mainMenu.hide()
 	mainSection.hide()
@@ -27,6 +28,15 @@ func _ready():
 	pcui.hide()
 	mainScript = get_owner()
 	changeCrossHair(false)
+	if mainScript.currentDay == 1 :
+		$computerScreen/day1.show()
+		$computerScreen/day2.hide()
+	
+	debugLabel = $crossHair/debugName
+	if mainScript.debugMode:
+		debugLabel.show()
+	else :
+		debugLabel.hide()
 	
 ##toggle the entire menu window
 func menuToggle():
@@ -118,9 +128,11 @@ func endConversation(_timeline_end):
 	print("conversation end")
 
 func openPCUi():
+	mainScript.handleUI()
 	pcui.show()
 	isPCON = true
 func closePCui():
+	mainScript.handleUI()
 	pcui.hide()
 	isPCON = false
 
@@ -145,7 +157,12 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		emit_signal("lidState",true)
 	pass # Replace with function body.
 
-
 func _on_exitPC_pressed():
 	closePCui()
 	pass # Replace with function body.
+
+func swapPC():
+		$computerScreen/day1.hide()
+		$computerScreen/day2.show()
+func debugLabelUpdate(name):
+	debugLabel.text = name

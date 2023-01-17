@@ -5,7 +5,8 @@
 	"folders": {
 		"Characters": {
 			"files": [
-				"character-1671633813.json"
+				"character-1671633813.json",
+				"character-1673982072.json"
 			],
 			"folders": {
 
@@ -78,6 +79,32 @@
 							"files": [
 								"timeline-1673719806.json",
 								"timeline-1673720100.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": true
+							}
+						},
+						"day2": {
+							"files": [
+								"timeline-1673967724.json",
+								"timeline-1673967769.json",
+								"timeline-1673982063.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": true
+							}
+						},
+						"day3": {
+							"files": [
+								"timeline-1673992445.json"
 							],
 							"folders": {
 

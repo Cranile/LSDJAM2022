@@ -24,6 +24,7 @@ onready var raycast = get_node("Spatial/plHead/raycast")
 var main;
 
 signal crossHairActive(type)
+signal interactableName(name)
 var isLookingInteractable = false
 
 signal eyelidsState(integerState)
@@ -77,9 +78,11 @@ func _process(_delta):
 			if(!isLookingInteractable):
 				isLookingInteractable = true
 				emit_signal("crossHairActive", type)
+				emit_signal("interactableName", raycast.get_collider().debugData())
 	elif(isLookingInteractable):
 		isLookingInteractable = false
 		emit_signal("crossHairActive","default")
+		emit_signal("interactableName", "")
 
 func _physics_process(delta):
 	direction = Vector3()
