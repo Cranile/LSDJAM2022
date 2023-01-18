@@ -5,4 +5,4 @@ func _ready():
 
 func storeItemUpdate():
 	get_parent().itemObtained()
-	print("got store item")
+	

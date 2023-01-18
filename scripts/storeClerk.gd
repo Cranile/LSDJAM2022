@@ -10,4 +10,3 @@ func taskDone():
 	if(dialogueIndex == 1):
 		main.itemBought()
 		get_parent().storeStatusManager(false)
-		print("item bought")

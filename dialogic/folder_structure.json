@@ -72,34 +72,36 @@
 				},
 				"narrationCity": {
 					"files": [
-
+						"timeline-1673994191.json"
 					],
 					"folders": {
 						"day1": {
 							"files": [
 								"timeline-1673719806.json",
-								"timeline-1673720100.json"
+								"timeline-1673720100.json",
+								"timeline-1674005593.json"
 							],
 							"folders": {
 
 							},
 							"metadata": {
 								"color": null,
-								"folded": true
+								"folded": false
 							}
 						},
 						"day2": {
 							"files": [
 								"timeline-1673967724.json",
 								"timeline-1673967769.json",
-								"timeline-1673982063.json"
+								"timeline-1673982063.json",
+								"timeline-1674004782.json"
 							],
 							"folders": {
 
 							},
 							"metadata": {
 								"color": null,
-								"folded": true
+								"folded": false
 							}
 						},
 						"day3": {

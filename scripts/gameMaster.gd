@@ -30,10 +30,6 @@ var topViewport;
 var mapController;
 
 func _ready():
-	print("main ready")
-	if (mapContainer.get_child_count() != 0):
-		print("has child")
-	
 	mainMenu = get_node("GUIlayer")
 	PSXLayer = get_node("PSXLayer")
 	topViewport = get_node("PSXLayer/BlurPostProcess/Viewport")
@@ -43,6 +39,8 @@ func _input(_event):
 	if Input.is_action_just_pressed("escape"):
 		handleUI()
 		mainMenu.menuToggle()
+	if Input.is_action_just_pressed("unstuck"):
+		unstuck()
 
 func changeMap(index):
 	tasksFinished = false
@@ -60,27 +58,25 @@ func changeMap(index):
 	scene = load(scenesList[levelIndex])
 	currentLevel = scene.instance();
 	mapContainer.add_child(currentLevel)
-	print("new level ", levelIndex)
+	
 	if !isDream:
 		mapController = mapContainer.get_child(0)
 		questUpdater()
 	else:
+		
 		mapController = null
-	pass
+	
 
 func goToSleep():
-	print("new day")
 	##check if map is dream
 	if (isDream == false):
-		print("now is dream")
 		isDream = true
 		changeMap(currentDay)
 	else:
 		isDream = false
 		currentDay +=1
-		print("to day ",currentDay)
-		questUpdater()
 		changeMap(0)
+		questUpdater()
 	##if dream 1 up the day counter 
 	##change map
 
@@ -115,19 +111,21 @@ func handleUI():
 		player.prevent_move = false
 		topViewport.gui_disable_input = false
 
+func unstuck():
+	Input.mouse_mode= Input.MOUSE_MODE_CAPTURED
+	player.prevent_move = false
+	topViewport.gui_disable_input = false
 func inputToogle(state):
 	##go to the top viewport and disable/enable the option for input
 	##this will prevent the player for moving but will allow the UI to grab input
 	topViewport.gui_disable_input = state
 
 func crossHairChange(type):
-	
 	mainMenu.changeCrossHair(type)
 
 func queueNewDialogue(timelineName):
 	mainMenu.newDialogue(timelineName)
 	handleUI()
-	print("create new dialogue")
 
 func figureUpdate(selectionINT):
 	figurine = selectionINT
@@ -141,7 +139,6 @@ func itemBought():
 
 func interactPC():
 	##called when player gets to interact with the pc on day 1
-	print("pc interact")
 	if (currentDay == 1 || currentDay == 2 ):
 		if (currentDayProgress == 2 ):
 			currentDayProgress +=1
@@ -149,26 +146,27 @@ func interactPC():
 		if (currentDayProgress >= 2):
 			mainMenu.openPCUi()
 
-func rainTrigger():
-	if (currentDayProgress <= 2):
+func rainTrigger():	
+	if (currentDayProgress == 1):
 		currentDayProgress +=1
 		questUpdater()
 
 func questUpdater():
-	print("quest updater called")
-	print("current progres ",currentDayProgress)
-	if(currentDay == 1):
-		print("day 1 quests")
+	if(currentDay > dailyTaskAmmount.size()):
+		print("Fin")
+		return;
+	if(currentDay == 1 && figurine == 0):
+		mapController.introTriggerEnabled()
 	if(currentDay == 2):
-		if mapController != null:
-			print("call1")
-			mapController.updateStoreInteraction(true)
+		mapController.day2ITriggerEnabled()
+		mapController.updateStoreInteraction(true)
 		mainMenu.swapPC()
-		print("day 2 quests")
+	
 	if(currentDay == 3):
 		##enable storm and trigger on house
-		
-		print("day 3 quests")
+		if mapController == null:
+			mapController = mapContainer.get_child(0)
+		mapController.enableDay3Quest()
 	##check if maximum is reach
 	##add new task
 	##OR

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scenes/npc/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/props/skybox.tscn" type="PackedScene" id=2]
@@ -11,7 +11,9 @@
 [ext_resource path="res://scripts/bed.gd" type="Script" id=9]
 [ext_resource path="res://scripts/pcController.gd" type="Script" id=10]
 [ext_resource path="res://scripts/storeClerk.gd" type="Script" id=11]
-[ext_resource path="res://scenes/maps/rainTrigger.gd" type="Script" id=12]
+[ext_resource path="res://scripts/rainTrigger.gd" type="Script" id=12]
+[ext_resource path="res://scripts/prop.gd" type="Script" id=13]
+[ext_resource path="res://scripts/trigger.gd" type="Script" id=14]
 
 [sub_resource type="SpatialMaterial" id=11]
 flags_transparent = true
@@ -46,6 +48,16 @@ extents = Vector3( 1, 1.5452, 1 )
 
 [sub_resource type="BoxShape" id=14]
 extents = Vector3( 1.55719, 1, 1.01134 )
+
+[sub_resource type="BoxShape" id=25]
+extents = Vector3( 0.770279, 1, 1 )
+
+[sub_resource type="BoxShape" id=26]
+extents = Vector3( 1.68485, 1, 1 )
+
+[sub_resource type="BoxShape" id=27]
+
+[sub_resource type="CubeMesh" id=28]
 
 [sub_resource type="Environment" id=3]
 ambient_light_color = Color( 1, 1, 1, 1 )
@@ -102,7 +114,7 @@ transform = Transform( 0.852941, 0, 0, 0, 0.771522, 0, 0, 0, 1.55514, 0, 0, 0 )
 mesh = SubResource( 17 )
 
 [node name="figure1" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps" groups=["figures"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.353, 0.896692, 38.3362 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4441, 0.896692, 11.1247 )
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 8 )
@@ -122,7 +134,7 @@ shape = SubResource( 1 )
 mesh = SubResource( 13 )
 
 [node name="figure2" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps" groups=["figures"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.353, 0.896692, 37.6751 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4441, 0.896692, 10.4636 )
 collision_layer = 4
 script = ExtResource( 8 )
 propName = "figure 2"
@@ -141,7 +153,7 @@ shape = SubResource( 1 )
 mesh = SubResource( 13 )
 
 [node name="figure3" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps" groups=["figures"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.353, 0.896692, 37.0496 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4441, 0.896692, 9.83813 )
 collision_layer = 4
 script = ExtResource( 8 )
 propName = "figure 3"
@@ -177,10 +189,11 @@ transform = Transform( 0.836511, 0, 0, 0, 0.475389, 0, 0, 0, 1.52638, 0, 0, 0 )
 mesh = SubResource( 19 )
 
 [node name="superMarket" type="Spatial" parent="ViewportContainer/Viewport/map/interactableProps"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.6774, 0, -18.4881 )
 script = ExtResource( 6 )
 
 [node name="storeClerk" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps/superMarket"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.03, 0.801139, 41.4886 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.04222, 0.801139, 6.13246 )
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 11 )
@@ -197,7 +210,7 @@ shape = SubResource( 21 )
 mesh = SubResource( 23 )
 
 [node name="storeItem1" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps/superMarket"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 37.4968, 0.550353, 32.6637 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.58533, 0.550353, -3.2051 )
 collision_layer = 4
 collision_mask = 0
 script = ExtResource( 5 )
@@ -214,10 +227,68 @@ shape = SubResource( 20 )
 [node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/map/interactableProps/superMarket/storeItem1"]
 mesh = SubResource( 22 )
 
+[node name="storeItem2" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps/superMarket"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.72707, 0.550353, 0.235315 )
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 5 )
+propName = "store item 2"
+haspickup = true
+hasDialogue = true
+dialogues = [ "d2o1" ]
+hasCustomMethod = true
+methodName = "storeItemUpdate"
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/interactableProps/superMarket/storeItem2"]
+shape = SubResource( 20 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/map/interactableProps/superMarket/storeItem2"]
+mesh = SubResource( 22 )
+
+[node name="storeItem3" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps/superMarket"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.98979, 0.550353, 3.37104 )
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 5 )
+propName = "store item 2"
+haspickup = true
+hasDialogue = true
+dialogues = [ "d2o1" ]
+hasCustomMethod = true
+methodName = "storeItemUpdate"
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/interactableProps/superMarket/storeItem3"]
+shape = SubResource( 20 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/map/interactableProps/superMarket/storeItem3"]
+mesh = SubResource( 22 )
+
+[node name="storeItem4" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps/superMarket"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.16724, 0.550353, 6.34225 )
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 5 )
+propName = "store item 3"
+haspickup = true
+hasDialogue = true
+dialogues = [ "d2o1" ]
+hasCustomMethod = true
+methodName = "storeItemUpdate"
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/interactableProps/superMarket/storeItem4"]
+shape = SubResource( 20 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/map/interactableProps/superMarket/storeItem4"]
+mesh = SubResource( 22 )
+
 [node name="day3" type="Spatial" parent="ViewportContainer/Viewport/map/interactableProps"]
 
 [node name="doorStop" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps/day3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 1.5184, 47 )
+script = ExtResource( 13 )
+propName = "rain block"
+hasDialogue = true
+dialogues = [ "day3Rain" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/interactableProps/day3/doorStop"]
 shape = SubResource( 24 )
@@ -234,6 +305,49 @@ customMethod = true
 [node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/interactableProps/day3/trigger"]
 shape = SubResource( 14 )
 
+[node name="startTrigger" type="Area" parent="ViewportContainer/Viewport/map/interactableProps"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.9759, 0.545448, 54.034 )
+collision_layer = 0
+collision_mask = 16
+script = ExtResource( 14 )
+propName = "intro trigger"
+hasDialogue = true
+dialogues = [ "d1o1" ]
+selfDisable = true
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/interactableProps/startTrigger"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.982117, 0, 0 )
+shape = SubResource( 25 )
+
+[node name="day2Intro" type="Area" parent="ViewportContainer/Viewport/map/interactableProps"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.0317, 0.545448, 51.6251 )
+collision_layer = 0
+collision_mask = 16
+script = ExtResource( 14 )
+propName = "day 2 intro"
+hasDialogue = true
+dialogues = [ "d2Intro" ]
+selfDisable = true
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/interactableProps/day2Intro"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.982117, 0, 0 )
+shape = SubResource( 26 )
+
+[node name="comicStoreClerk" type="StaticBody" parent="ViewportContainer/Viewport/map/interactableProps"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2769, 0.851461, 14.8071 )
+collision_layer = 4
+collision_mask = 0
+script = ExtResource( 13 )
+propName = "Comic Store clerk"
+hasDialogue = true
+dialogues = [ "comicStoreClerk" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/interactableProps/comicStoreClerk"]
+shape = SubResource( 27 )
+
+[node name="MeshInstance" type="MeshInstance" parent="ViewportContainer/Viewport/map/interactableProps/comicStoreClerk"]
+mesh = SubResource( 28 )
+
 [node name="skyboxCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -22.0863, -0.0790062 )
 cull_mask = 256
@@ -243,3 +357,5 @@ script = ExtResource( 3 )
 environment = SubResource( 3 )
 
 [connection signal="body_entered" from="ViewportContainer/Viewport/map/interactableProps/day3/trigger" to="ViewportContainer/Viewport/map/interactableProps/day3/trigger" method="_on_trigger_body_entered"]
+[connection signal="body_entered" from="ViewportContainer/Viewport/map/interactableProps/startTrigger" to="ViewportContainer/Viewport/map/interactableProps/startTrigger" method="_on_trigger_body_entered"]
+[connection signal="body_entered" from="ViewportContainer/Viewport/map/interactableProps/day2Intro" to="ViewportContainer/Viewport/map/interactableProps/day2Intro" method="_on_trigger_body_entered"]

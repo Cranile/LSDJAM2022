@@ -131,12 +131,12 @@ align = 1
 valign = 1
 
 [node name="computerScreen" type="ColorRect" parent="GUIlayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.364706, 0.937255, 0.482353, 1 )
 
 [node name="day1" type="Control" parent="GUIlayer/computerScreen"]
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -173,6 +173,7 @@ margin_top = -43.0
 text = "Exit"
 
 [node name="day2" type="Control" parent="GUIlayer/computerScreen"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 

@@ -52,7 +52,7 @@ func _input(event):
 			emit_signal("eyelidsState",isFocusing)
 		##update eyes visual
 	if (Input.is_action_pressed("exitDream") && isFocusFinished):
-		print("try exit dream")
+		
 		isFocusing = false
 		canBlink = false
 		emit_signal("eyelidsState",isFocusing)
@@ -60,8 +60,6 @@ func _input(event):
 	if Input.is_action_just_released("focus") && canBlink:
 		isFocusing = false
 		emit_signal("eyelidsState",isFocusing)
-		
-		print("focus released, last: ", isFocusing)
 	
 	# Camera movement
 	if(event) is InputEventMouseMotion:
@@ -123,6 +121,5 @@ func _physics_process(delta):
 	move_and_slide(movement, Vector3.UP)
 
 func lidsUpdated(state):
-	print("pl lid updated")
 	isFocusFinished = state
 	

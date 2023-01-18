@@ -8,11 +8,11 @@ func _ready():
 func storeStatusManager(booleanState):
 	var children = get_children()
 	if (booleanState):
-		print("disable all collision for store")
+
 		for child in children:
 			child.enableInteraction()
 	else:
-		print("enable all collision for store")
+
 		for child in children:
 			child.disableInteraction()
 

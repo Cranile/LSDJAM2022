@@ -11,6 +11,10 @@ export var hasDialogue = false
 export var dialogueIndex = 0
 export var dialogues = [""]
 
+export var selfDisable = false
+var currentDisableCount = 0
+export var collisionCountToDisable = 1
+
 export var customMethod = false
 var main 
 func _ready():
@@ -22,30 +26,37 @@ func getMapIndex():
 
 func interaction():
 	
-	print("interacting with prop: ",propName)
+	
 	if(hasMapchange):
 		main.changeMap(newMapIndex)
-		print("mapChange")
+		
 	if(hasOpen):
 		print("open")
 	if(hasDialogue):
 		main.queueNewDialogue(dialogues[dialogueIndex])
-		print("dialogue")
+		
 	if(customMethod):
 		extraMethod()
+	if(selfDisable):
+		currentDisableCount += 1
+		if(currentDisableCount >= collisionCountToDisable):
+			disableInteraction()
 func deleteSelf():
 	queue_free()
-	print("delete self")
+	
 
 func disableInteraction():
-	print("disable interaction")
 	get_node("CollisionShape").set_deferred("disabled",true)
 
+func enableInteraction():
+	get_node("CollisionShape").set_deferred("disabled",false)
+
 func extraMethod():
+	print("generic extra method")
 	pass
 
 func _on_trigger_body_entered(body):
-	print(body, " entered")
+	
 	interaction()
 	pass # Replace with function body.
 

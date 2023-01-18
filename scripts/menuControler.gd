@@ -125,7 +125,6 @@ func newDialogue(timelineName):
 
 func endConversation(_timeline_end):
 	mainScript.handleUI()
-	print("conversation end")
 
 func openPCUi():
 	mainScript.handleUI()
@@ -137,7 +136,6 @@ func closePCui():
 	isPCON = false
 
 func eyelidsUpdate(state):
-	print("lids updated: ",state)
 	emit_signal("lidState",false)
 	if state :
 		##anim start
@@ -150,9 +148,7 @@ func eyelidsUpdate(state):
 		$eyes/AnimationPlayer.play_backwards("blink")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	print("eyes finished anim")
 	##anim end
-	
 	if (animationPlaySpeed == 1):
 		emit_signal("lidState",true)
 	pass # Replace with function body.

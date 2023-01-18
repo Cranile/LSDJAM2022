@@ -1,0 +1,19 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "i forgot to do the groceries yesterday, i should do it before i forget again. . ."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1674004782.json",
+		"name": "d2Intro"
+	}
+}

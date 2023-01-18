@@ -1,5 +1,5 @@
 extends trigger
 
-func customMethod():
+func extraMethod():
 	main.rainTrigger()
 	disableInteraction()

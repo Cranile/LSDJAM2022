@@ -34,20 +34,18 @@ func interactionType():
 	else :
 		return "interact"
 func interaction():
-	
-	print("interacting with prop: ",propName)
 	if(hasMapchange):
 		main.changeMap(newMapIndex)
-		print("mapChange")
+		
 	if(hasOpen):
 		print("open")
 	if(haspickup):
-		print("pickup")
+		
 		if(deleteOnPickup):
 			deleteSelf()
 	if(hasDialogue):
 		main.queueNewDialogue(dialogues[dialogueIndex])
-		print("dialogue")
+		
 	if(hasCustomMethod):
 		if !(has_method(methodName)) :
 			return
@@ -55,7 +53,7 @@ func interaction():
 
 func deleteSelf():
 	queue_free()
-	print("delete self")
+	
 
 func enableInteraction():
 	get_node("CollisionShape").set_deferred("disabled",false)

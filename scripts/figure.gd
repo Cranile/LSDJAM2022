@@ -8,4 +8,3 @@ func _ready():
 
 func figureUpdate():
 	main.figureUpdate(figureID)
-	print("figure is: ",figureID)
