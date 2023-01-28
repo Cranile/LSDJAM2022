@@ -1212,6 +1212,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0211499, -23.8912, -0.17873
 
 [node name="aurora" type="MeshInstance" parent="ViewportContainer/Viewport/skybox2"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -0.2, 0, 1, -8.74228e-09, 0, 2.25726, -1.07334 )
+visible = false
 layers = 256
 mesh = SubResource( 10 )
 
