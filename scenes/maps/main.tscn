@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://addons/godot-psx-style-demo-master/post_process/pp_lcd_mat.tres" type="Material" id=1]
 [ext_resource path="res://addons/godot-psx-style-demo-master/post_process/pp_dither.tres" type="Material" id=2]
@@ -10,7 +10,13 @@
 [ext_resource path="res://scripts/centerContainer.gd" type="Script" id=8]
 [ext_resource path="res://textures/UI/point.png" type="Texture" id=9]
 [ext_resource path="res://scripts/crossHair.gd" type="Script" id=10]
-[ext_resource path="res://smallFont.tres" type="DynamicFont" id=11]
+[ext_resource path="res://textures/pc/dreamdisc.png" type="Texture" id=11]
+[ext_resource path="res://textures/pc/mockupDesktop.jpg" type="Texture" id=12]
+[ext_resource path="res://textures/pc/mockupBrowser.png" type="Texture" id=13]
+[ext_resource path="res://textures/pc/hypnagogia.png" type="Texture" id=14]
+[ext_resource path="res://textures/pc/mosaic.png" type="Texture" id=15]
+[ext_resource path="res://textures/pc/liminalDreams.png" type="Texture" id=16]
+[ext_resource path="res://textures/pc/oneshot.png" type="Texture" id=17]
 
 [sub_resource type="Animation" id=1]
 resource_name = "blink"
@@ -39,6 +45,15 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Vector2( 0, 720 ), Vector2( 0, 360 ) ]
 }
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.788235, 0.0941176, 0.0941176, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
 
 [node name="main" type="Node" groups=["main"]]
 script = ExtResource( 4 )
@@ -130,96 +145,6 @@ text = "prop name"
 align = 1
 valign = 1
 
-[node name="computerScreen" type="ColorRect" parent="GUIlayer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 0.364706, 0.937255, 0.482353, 1 )
-
-[node name="day1" type="Control" parent="GUIlayer/computerScreen"]
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="desktop" type="ColorRect" parent="GUIlayer/computerScreen/day1"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 1, 1, 1, 0 )
-
-[node name="internetBrowser" type="ColorRect" parent="GUIlayer/computerScreen/day1"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 220.0
-margin_top = 100.0
-margin_right = 700.0
-margin_bottom = 580.0
-
-[node name="Label" type="Label" parent="GUIlayer/computerScreen/day1/internetBrowser"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Stuck on life ? out of creativty ? no place to escape to ? Don't despair, Join dreamland.
-You just need to S L E E P"
-autowrap = true
-
-[node name="exitPC" type="Button" parent="GUIlayer/computerScreen/day1/internetBrowser"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -57.0
-margin_top = -43.0
-text = "Exit"
-
-[node name="day2" type="Control" parent="GUIlayer/computerScreen"]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="desktop" type="ColorRect" parent="GUIlayer/computerScreen/day2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-color = Color( 1, 1, 1, 0 )
-
-[node name="internetBrowser" type="ColorRect" parent="GUIlayer/computerScreen/day2"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 220.0
-margin_top = 100.0
-margin_right = 700.0
-margin_bottom = 580.0
-
-[node name="title" type="Label" parent="GUIlayer/computerScreen/day2/internetBrowser"]
-anchor_right = 1.0
-margin_bottom = 37.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "The DreamLand forums"
-align = 1
-valign = 1
-
-[node name="Label" type="Label" parent="GUIlayer/computerScreen/day2/internetBrowser"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 51.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 11 )
-text = "Share your dreams:
-i have found this wonderfull yet strange and sometimes somber place, where my daily ocurrences tail my steps and my fears and wonders seem to appear and vanish from my  consiouscness. I have realised that quite a bit of the things i see are a mirror of my life experiences, but also, the weirdest and most alien things seem to occurs, as if i was staring into other people dreams.
-Has someone else imagined that there is a connection with the internet and dreams? are we being connected somehow?"
-autowrap = true
-
-[node name="exitPC" type="Button" parent="GUIlayer/computerScreen/day2/internetBrowser"]
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -98.0
-margin_top = -43.0
-text = "publish"
-
 [node name="eyes" type="Control" parent="GUIlayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -235,7 +160,7 @@ color = Color( 0, 0, 0, 1 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_bottom = 959.999
+margin_bottom = 720.0
 rect_min_size = Vector2( 0, 500 )
 color = Color( 0, 0, 0, 1 )
 
@@ -255,7 +180,6 @@ margin_bottom = 272.0
 color = Color( 0.309804, 0.309804, 0.309804, 1 )
 
 [node name="mainSection" type="Control" parent="GUIlayer/mainMenu"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -308,6 +232,7 @@ custom_fonts/font = ExtResource( 6 )
 text = "Exit"
 
 [node name="optionSection" type="Control" parent="GUIlayer/mainMenu"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -436,11 +361,236 @@ margin_right = 166.0
 custom_fonts/font = ExtResource( 6 )
 text = "Back"
 
-[connection signal="pressed" from="GUIlayer/computerScreen/day1/internetBrowser/exitPC" to="GUIlayer" method="_on_exitPC_pressed"]
-[connection signal="pressed" from="GUIlayer/computerScreen/day2/internetBrowser/exitPC" to="GUIlayer" method="_on_exitPC_pressed"]
+[node name="Label2" type="Label" parent="GUIlayer/mainMenu/creditSection"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 43.0
+margin_bottom = -53.0
+text = "Textures :
+textures.com
+unsplash.com
+https://craigsnedeker.itch.io/classic64-asset-library
+https://elbolilloduro.itch.io/
+Me
+Music/SFX:
+https://nox-sound.itch.io/
+Addons:
+Dialogic
+Human 3d models:
+https://elbolilloduro.itch.io/"
+
+[node name="computerScreen" type="TextureRect" parent="GUIlayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 1
+
+[node name="day1" type="Control" parent="GUIlayer/computerScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+
+[node name="desktop" type="Control" parent="GUIlayer/computerScreen/day1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -30.0
+mouse_filter = 1
+
+[node name="TextureButton" type="TextureButton" parent="GUIlayer/computerScreen/day1/desktop"]
+margin_left = 27.0
+margin_top = 11.0
+margin_right = 121.0
+margin_bottom = 61.0
+texture_normal = ExtResource( 17 )
+
+[node name="TextureButton2" type="TextureButton" parent="GUIlayer/computerScreen/day1/desktop"]
+margin_left = 33.0
+margin_top = 73.0
+margin_right = 127.0
+margin_bottom = 173.0
+texture_normal = ExtResource( 15 )
+
+[node name="internetBrowser" type="TextureRect" parent="GUIlayer/computerScreen/day1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -432.0
+margin_top = -288.0
+margin_right = 432.0
+margin_bottom = 288.0
+texture = ExtResource( 13 )
+stretch_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GUIlayer/computerScreen/day1/internetBrowser"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -329.0
+margin_top = -135.0
+margin_right = 341.0
+margin_bottom = 220.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_text = "Do you feel stuck? 
+The engine that moved your inspiration stopped? 
+Need to escape somewhere?
+Dont despair, join us. You just need to S L E E P"
+text = "Do you feel stuck? 
+The engine that moved your inspiration stopped? 
+Need to escape somewhere?
+Dont despair, join us. You just need to S L E E P"
+scroll_active = false
+
+[node name="h1" type="Label" parent="GUIlayer/computerScreen/day1/internetBrowser"]
+anchor_left = 0.5
+anchor_top = 0.184
+anchor_right = 0.5
+anchor_bottom = 0.211
+margin_left = -151.018
+margin_right = 151.018
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "The DreamLand forums"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="exitPC" type="Button" parent="GUIlayer/computerScreen/day1/internetBrowser"]
+anchor_left = 0.902
+anchor_top = 0.046
+anchor_right = 0.911
+anchor_bottom = 0.046
+margin_left = -31.0
+margin_bottom = 45.0
+rect_scale = Vector2( 0.960756, 0.72 )
+custom_styles/normal = SubResource( 2 )
+text = "X"
+
+[node name="exitPC2" type="Button" parent="GUIlayer/computerScreen/day1/internetBrowser"]
+anchor_left = 0.5
+anchor_top = 0.61
+anchor_right = 0.5
+anchor_bottom = 0.61
+margin_left = -48.5
+margin_top = -22.5
+margin_right = 48.5
+margin_bottom = 22.5
+rect_scale = Vector2( 1.20076, 0.96 )
+text = "Join"
+
+[node name="day2" type="Control" parent="GUIlayer/computerScreen"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+
+[node name="desktop" type="Control" parent="GUIlayer/computerScreen/day2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TextureButton" type="TextureButton" parent="GUIlayer/computerScreen/day2/desktop"]
+margin_left = 11.0
+margin_top = 9.0
+margin_right = 105.0
+margin_bottom = 58.0
+texture_normal = ExtResource( 14 )
+
+[node name="TextureButton2" type="TextureButton" parent="GUIlayer/computerScreen/day2/desktop"]
+margin_left = 28.0
+margin_top = 68.0
+margin_right = 122.0
+margin_bottom = 150.0
+texture_normal = ExtResource( 16 )
+
+[node name="TextureButton3" type="TextureButton" parent="GUIlayer/computerScreen/day2/desktop"]
+margin_left = 11.0
+margin_top = 163.0
+margin_right = 105.0
+margin_bottom = 245.0
+texture_normal = ExtResource( 11 )
+
+[node name="TextureButton4" type="TextureButton" parent="GUIlayer/computerScreen/day2/desktop"]
+margin_left = 29.0
+margin_top = 226.0
+margin_right = 123.0
+margin_bottom = 326.0
+texture_normal = ExtResource( 15 )
+
+[node name="internetBrowser" type="TextureRect" parent="GUIlayer/computerScreen/day2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -432.0
+margin_top = -288.0
+margin_right = 432.0
+margin_bottom = 288.0
+texture = ExtResource( 13 )
+stretch_mode = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GUIlayer/computerScreen/day2/internetBrowser"]
+anchor_left = 0.115
+anchor_top = 0.271
+anchor_right = 0.904
+anchor_bottom = 0.812
+scroll_horizontal_enabled = false
+
+[node name="Label" type="Label" parent="GUIlayer/computerScreen/day2/internetBrowser/ScrollContainer"]
+margin_right = 650.0
+margin_bottom = 477.0
+rect_min_size = Vector2( 650, 0 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Share your dreams:
+i have found this wonderfull yet strange and sometimes somber place, where my daily ocurrences tail my steps and my fears and wonders seem to appear and vanish from my  consiouscness. I have realised that quite a bit of the things i see are a mirror of my life experiences, but also, the weirdest and most alien things seem to occurs, as if i was staring into other people dreams.
+Has someone else imagined that there is a connection with the internet and dreams? are we being connected somehow?"
+autowrap = true
+
+[node name="h1" type="Label" parent="GUIlayer/computerScreen/day2/internetBrowser"]
+anchor_left = 0.5
+anchor_top = 0.184
+anchor_right = 0.5
+anchor_bottom = 0.211
+margin_left = -151.018
+margin_right = 151.018
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "The DreamLand forums"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="exitPC" type="Button" parent="GUIlayer/computerScreen/day2/internetBrowser"]
+anchor_left = 0.902
+anchor_top = 0.046
+anchor_right = 0.911
+anchor_bottom = 0.046
+margin_left = -31.0
+margin_bottom = 27.0
+rect_scale = Vector2( 0.960756, 0.72 )
+custom_styles/normal = SubResource( 2 )
+text = "X"
+
+[node name="exitPC2" type="Button" parent="GUIlayer/computerScreen/day2/internetBrowser"]
+anchor_left = 0.817
+anchor_top = 0.899
+anchor_right = 0.817
+anchor_bottom = 0.899
+margin_left = -57.0
+margin_top = -45.0
+rect_scale = Vector2( 1.20076, 0.96 )
+text = "Publish"
+
 [connection signal="animation_finished" from="GUIlayer/eyes/AnimationPlayer" to="GUIlayer" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="GUIlayer/mainMenu/mainSection/buttonsContainer/buttonOptions" to="GUIlayer" method="_on_buttonOptions_pressed"]
 [connection signal="pressed" from="GUIlayer/mainMenu/mainSection/buttonsContainer/buttonCredits" to="GUIlayer" method="_on_buttonCredits_pressed"]
 [connection signal="pressed" from="GUIlayer/mainMenu/mainSection/buttonsContainer/buttonExit" to="GUIlayer" method="_on_buttonExit_pressed"]
 [connection signal="pressed" from="GUIlayer/mainMenu/optionSection/backFromOption" to="GUIlayer" method="_on_backFromOption_pressed"]
 [connection signal="pressed" from="GUIlayer/mainMenu/creditSection/backFromCredits" to="GUIlayer" method="_on_backFromCredits_pressed"]
+[connection signal="pressed" from="GUIlayer/computerScreen/day1/internetBrowser/exitPC" to="GUIlayer" method="_on_exitPC_pressed"]
+[connection signal="pressed" from="GUIlayer/computerScreen/day1/internetBrowser/exitPC2" to="GUIlayer" method="_on_exitPC_pressed"]
+[connection signal="pressed" from="GUIlayer/computerScreen/day2/internetBrowser/exitPC" to="GUIlayer" method="_on_exitPC_pressed"]
+[connection signal="pressed" from="GUIlayer/computerScreen/day2/internetBrowser/exitPC2" to="GUIlayer" method="_on_exitPC_pressed"]

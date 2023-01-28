@@ -19,6 +19,7 @@ var canBlink = true
 onready var head = get_node("%plHead")
 onready var step_timer = get_node("%plStep_timer")
 onready var audioStep = get_node("%plAudioStep")
+onready var audioAmbience = get_node("%plAmbience")
 onready var raycast = get_node("Spatial/plHead/raycast")
 
 var main;
@@ -36,7 +37,6 @@ func _ready():
 	pass # Replace with function body.
 
 func _input(event):
-
 	# prevent player movement (except escape)
 	if (prevent_move):
 		return;
