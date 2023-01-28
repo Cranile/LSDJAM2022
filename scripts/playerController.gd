@@ -15,13 +15,13 @@ var isFocusing = false #goes up as long as player holdAnimationPlayers focus key
 var isFocusFinished = false
 var canBlink = true
 
-
 onready var head = get_node("%plHead")
 onready var step_timer = get_node("%plStep_timer")
 onready var audioStep = get_node("%plAudioStep")
 onready var audioAmbience = get_node("%plAmbience")
 onready var raycast = get_node("Spatial/plHead/raycast")
 
+export var ambienceList = [""]
 var main;
 
 signal crossHairActive(type)
@@ -122,4 +122,9 @@ func _physics_process(delta):
 
 func lidsUpdated(state):
 	isFocusFinished = state
+	
+func currentAmbience(index):
+	var audio = load(ambienceList[index])
+	audioAmbience.set_stream(audio)
+	audioAmbience.play()
 	

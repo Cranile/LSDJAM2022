@@ -1,18 +1,73 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/npc/player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/props/skybox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://shaders/skybox.tres" type="Material" id=2]
 [ext_resource path="res://scripts/skyboxCamera.gd" type="Script" id=3]
 [ext_resource path="res://scripts/dream1.gd" type="Script" id=4]
 [ext_resource path="res://dream1/treeLibrary.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/skyboxControler.gd" type="Script" id=6]
+[ext_resource path="res://models/forestSkybox.material" type="Material" id=7]
 
-[sub_resource type="CylinderShape" id=4]
+[sub_resource type="ArrayMesh" id=1]
+resource_name = "forestSkybox_Cylinder001"
+surfaces/0 = {
+"aabb": AABB( -1, -1, -1, 2, 2, 2 ),
+"array_data": PoolByteArray( 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 128, 191, 230, 0, 100, 63, 191, 54, 0, 60, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 128, 191, 26, 0, 127, 76, 17, 58, 0, 60, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 191, 230, 0, 100, 63, 191, 54, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 191, 26, 0, 127, 76, 17, 58, 0, 0, 0, 0, 0, 63, 0, 0, 128, 191, 215, 179, 93, 191, 230, 0, 100, 63, 128, 56, 0, 60, 0, 0, 0, 63, 0, 0, 128, 191, 215, 179, 93, 191, 193, 0, 63, 63, 244, 56, 0, 60, 0, 0, 0, 63, 0, 0, 128, 63, 215, 179, 93, 191, 230, 0, 100, 63, 128, 56, 0, 0, 0, 0, 0, 63, 0, 0, 128, 63, 215, 179, 93, 191, 193, 0, 63, 63, 244, 56, 0, 0, 215, 179, 93, 63, 0, 0, 128, 191, 0, 0, 0, 191, 156, 0, 129, 143, 142, 57, 0, 60, 215, 179, 93, 63, 0, 0, 128, 191, 0, 0, 0, 191, 193, 0, 63, 63, 199, 57, 0, 60, 215, 179, 93, 63, 0, 0, 128, 63, 0, 0, 0, 191, 156, 0, 129, 143, 142, 57, 0, 0, 215, 179, 93, 63, 0, 0, 128, 63, 0, 0, 0, 191, 193, 0, 63, 63, 199, 57, 0, 0, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 0, 128, 129, 26, 127, 143, 110, 56, 0, 60, 0, 0, 128, 63, 0, 0, 128, 191, 0, 0, 0, 128, 156, 0, 129, 143, 110, 56, 0, 60, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 128, 129, 26, 127, 143, 110, 56, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 128, 156, 0, 129, 143, 110, 56, 0, 0, 215, 179, 93, 63, 0, 0, 128, 191, 0, 0, 0, 63, 129, 26, 127, 143, 154, 54, 0, 60, 215, 179, 93, 63, 0, 0, 128, 191, 0, 0, 0, 63, 129, 63, 127, 161, 32, 57, 0, 60, 215, 179, 93, 63, 0, 0, 128, 63, 0, 0, 0, 63, 129, 26, 127, 143, 154, 54, 0, 0, 215, 179, 93, 63, 0, 0, 128, 63, 0, 0, 0, 63, 129, 63, 127, 161, 32, 57, 0, 0, 0, 0, 0, 63, 0, 0, 128, 191, 215, 179, 93, 63, 129, 63, 127, 161, 76, 56, 0, 60, 0, 0, 0, 63, 0, 0, 128, 191, 215, 179, 93, 63, 129, 100, 127, 180, 181, 56, 0, 60, 0, 0, 0, 63, 0, 0, 128, 63, 215, 179, 93, 63, 129, 63, 127, 161, 76, 56, 0, 0, 0, 0, 0, 63, 0, 0, 128, 63, 215, 179, 93, 63, 129, 100, 127, 180, 181, 56, 0, 0, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 128, 63, 129, 100, 127, 180, 41, 55, 0, 60, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 128, 63, 127, 100, 100, 193, 41, 55, 0, 60, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 129, 100, 127, 180, 41, 55, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 127, 100, 100, 193, 41, 55, 0, 0, 0, 0, 0, 191, 0, 0, 128, 191, 215, 179, 93, 63, 127, 100, 100, 193, 232, 52, 0, 60, 0, 0, 0, 191, 0, 0, 128, 191, 215, 179, 93, 63, 127, 63, 63, 193, 232, 52, 0, 60, 0, 0, 0, 191, 0, 0, 128, 63, 215, 179, 93, 63, 127, 100, 100, 193, 232, 52, 0, 0, 0, 0, 0, 191, 0, 0, 128, 63, 215, 179, 93, 63, 127, 63, 63, 193, 232, 52, 0, 0, 215, 179, 93, 191, 0, 0, 128, 191, 0, 0, 0, 63, 127, 63, 63, 193, 131, 50, 0, 60, 215, 179, 93, 191, 0, 0, 128, 191, 0, 0, 0, 63, 127, 26, 129, 113, 83, 51, 0, 60, 215, 179, 93, 191, 0, 0, 128, 63, 0, 0, 0, 63, 127, 63, 63, 193, 131, 50, 0, 0, 215, 179, 93, 191, 0, 0, 128, 63, 0, 0, 0, 63, 127, 26, 129, 113, 83, 51, 0, 0, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 0, 128, 127, 26, 129, 113, 235, 53, 0, 60, 0, 0, 128, 191, 0, 0, 128, 191, 0, 0, 0, 128, 100, 0, 127, 113, 235, 53, 0, 60, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 0, 128, 127, 26, 129, 113, 235, 53, 0, 0, 0, 0, 128, 191, 0, 0, 128, 63, 0, 0, 0, 128, 100, 0, 127, 113, 235, 53, 0, 0, 215, 179, 93, 191, 0, 0, 128, 191, 0, 0, 0, 191, 100, 0, 127, 113, 22, 56, 0, 60, 215, 179, 93, 191, 0, 0, 128, 191, 0, 0, 0, 191, 63, 0, 127, 95, 29, 56, 0, 60, 215, 179, 93, 191, 0, 0, 128, 63, 0, 0, 0, 191, 100, 0, 127, 113, 22, 56, 0, 0, 215, 179, 93, 191, 0, 0, 128, 63, 0, 0, 0, 191, 63, 0, 127, 95, 29, 56, 0, 0, 0, 0, 0, 191, 0, 0, 128, 191, 215, 179, 93, 191, 26, 0, 127, 76, 240, 56, 0, 60, 0, 0, 0, 191, 0, 0, 128, 191, 215, 179, 93, 191, 63, 0, 127, 95, 240, 56, 0, 60, 0, 0, 0, 191, 0, 0, 128, 63, 215, 179, 93, 191, 26, 0, 127, 76, 240, 56, 0, 0, 0, 0, 0, 191, 0, 0, 128, 63, 215, 179, 93, 191, 63, 0, 127, 95, 240, 56, 0, 0 ),
+"array_index_data": PoolByteArray( 0, 0, 6, 0, 4, 0, 0, 0, 2, 0, 6, 0, 5, 0, 11, 0, 9, 0, 5, 0, 7, 0, 11, 0, 8, 0, 15, 0, 13, 0, 8, 0, 10, 0, 15, 0, 12, 0, 18, 0, 16, 0, 12, 0, 14, 0, 18, 0, 17, 0, 22, 0, 20, 0, 17, 0, 19, 0, 22, 0, 21, 0, 26, 0, 24, 0, 21, 0, 23, 0, 26, 0, 25, 0, 30, 0, 28, 0, 25, 0, 27, 0, 30, 0, 29, 0, 34, 0, 32, 0, 29, 0, 31, 0, 34, 0, 33, 0, 38, 0, 36, 0, 33, 0, 35, 0, 38, 0, 37, 0, 42, 0, 40, 0, 37, 0, 39, 0, 42, 0, 41, 0, 47, 0, 45, 0, 41, 0, 43, 0, 47, 0, 44, 0, 3, 0, 1, 0, 44, 0, 46, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 72,
+"material": ExtResource( 7 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 48
+}
+
+[sub_resource type="ArrayMesh" id=7]
+resource_name = "skybox_Cube"
+surfaces/0 = {
+"aabb": AABB( -1, 0, -1, 2.00001, 2.00001, 2 ),
+"array_data": PoolByteArray( 0, 0, 128, 63, 0, 0, 0, 64, 0, 0, 128, 191, 129, 0, 0, 63, 64, 51, 178, 54, 0, 0, 128, 63, 0, 0, 0, 64, 0, 0, 128, 191, 0, 129, 0, 63, 128, 29, 147, 54, 0, 0, 128, 63, 0, 0, 0, 64, 0, 0, 128, 191, 0, 0, 127, 63, 108, 58, 178, 54, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 191, 129, 0, 0, 63, 64, 51, 245, 59, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 127, 63, 108, 58, 245, 59, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 191, 0, 127, 0, 63, 181, 56, 102, 30, 0, 0, 128, 63, 0, 0, 0, 64, 0, 0, 128, 63, 129, 0, 0, 63, 108, 58, 178, 54, 0, 0, 128, 63, 0, 0, 0, 64, 0, 0, 128, 63, 0, 129, 0, 63, 146, 54, 147, 54, 0, 0, 128, 63, 0, 0, 0, 64, 0, 0, 128, 63, 127, 127, 129, 63, 64, 51, 178, 54, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 129, 0, 0, 63, 108, 58, 245, 59, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 127, 127, 129, 63, 64, 51, 245, 59, 0, 0, 128, 63, 0, 0, 0, 0, 0, 0, 128, 63, 0, 127, 0, 63, 241, 59, 102, 30, 0, 0, 128, 191, 0, 0, 0, 64, 0, 0, 128, 191, 0, 129, 0, 63, 128, 29, 209, 29, 0, 0, 128, 191, 0, 0, 0, 64, 0, 0, 128, 191, 0, 0, 127, 63, 64, 51, 178, 54, 0, 0, 128, 191, 0, 0, 0, 64, 0, 0, 128, 191, 127, 0, 127, 127, 108, 58, 178, 54, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 191, 0, 0, 127, 63, 64, 51, 245, 59, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 191, 0, 127, 0, 63, 181, 56, 145, 54, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 191, 127, 0, 127, 127, 108, 58, 245, 59, 0, 0, 128, 191, 0, 0, 0, 64, 0, 0, 128, 63, 0, 129, 0, 63, 146, 54, 209, 29, 0, 0, 128, 191, 0, 0, 0, 64, 0, 0, 128, 63, 127, 127, 129, 63, 108, 58, 178, 54, 0, 0, 128, 191, 0, 0, 0, 64, 0, 0, 128, 63, 127, 0, 127, 127, 64, 51, 178, 54, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 63, 127, 127, 129, 63, 108, 58, 245, 59, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 63, 0, 127, 0, 63, 241, 59, 145, 54, 0, 0, 128, 191, 0, 0, 0, 0, 0, 0, 128, 63, 127, 0, 127, 127, 64, 51, 245, 59 ),
+"array_index_data": PoolByteArray( 1, 0, 18, 0, 7, 0, 1, 0, 12, 0, 18, 0, 10, 0, 19, 0, 21, 0, 10, 0, 8, 0, 19, 0, 23, 0, 14, 0, 17, 0, 23, 0, 20, 0, 14, 0, 16, 0, 11, 0, 22, 0, 16, 0, 5, 0, 11, 0, 3, 0, 6, 0, 9, 0, 3, 0, 0, 0, 6, 0, 15, 0, 2, 0, 4, 0, 15, 0, 13, 0, 2, 0 ),
+"blend_shape_data": [  ],
+"format": 2194711,
+"index_count": 36,
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 24
+}
+
+[sub_resource type="PlaneMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 1, 0.631373, 0, 1 )
+emission_enabled = true
+emission = Color( 1, 0.823529, 0.341176, 1 )
+emission_energy = 0.84
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 1, 0.196087, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+emission_enabled = true
+emission = Color( 1, 1, 1, 1 )
+emission_energy = 2.06
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.24413, 0.181828, 0.329244 )
+
+[sub_resource type="CylinderShape" id=8]
 radius = 204.128
 
-[sub_resource type="Environment" id=3]
-ambient_light_color = Color( 1, 1, 1, 1 )
-fog_depth_begin = 0.0
-fog_depth_end = 99.9
+[sub_resource type="Environment" id=9]
+ambient_light_color = Color( 0.996078, 0.847059, 0.717647, 1 )
+fog_depth_begin = 93.9
+fog_depth_end = 68.1
+fog_depth_curve = 1782.89
 
 [node name="dream1" type="Spatial"]
 script = ExtResource( 4 )
@@ -27,12 +82,60 @@ transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 3
 
-[node name="skybox" parent="ViewportContainer/Viewport" instance=ExtResource( 2 )]
+[node name="skybox" type="Spatial" parent="ViewportContainer/Viewport"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0211499, -23.8912, -0.17873 )
+script = ExtResource( 6 )
+
+[node name="forestSkybox" type="Spatial" parent="ViewportContainer/Viewport/skybox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0 )
+
+[node name="forestSkybox" type="MeshInstance" parent="ViewportContainer/Viewport/skybox/forestSkybox"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0.259781, 0 )
+layers = 256
+mesh = SubResource( 1 )
+
+[node name="slybox" type="MeshInstance" parent="ViewportContainer/Viewport/skybox"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+layers = 256
+mesh = SubResource( 7 )
+material/0 = ExtResource( 2 )
+
+[node name="astralArea" type="Spatial" parent="ViewportContainer/Viewport/skybox"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2, 0 )
+
+[node name="sun" type="MeshInstance" parent="ViewportContainer/Viewport/skybox/astralArea"]
+transform = Transform( 0.249, 0, 0, 0, -4.1351e-08, 0.231, 0, -0.946, -1.00973e-08, 0, 0, 1.92329 )
+layers = 256
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="sunArea" type="Area" parent="ViewportContainer/Viewport/skybox/astralArea/sun"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/skybox/astralArea/sun/sunArea"]
+shape = SubResource( 5 )
+disabled = true
+
+[node name="moon" type="MeshInstance" parent="ViewportContainer/Viewport/skybox/astralArea"]
+transform = Transform( 0.249, 0, 0, 0, -4.1351e-08, -0.231, 0, 0.946, -1.00973e-08, 0, 0, -1.94291 )
+layers = 256
+mesh = SubResource( 2 )
+material/0 = SubResource( 4 )
+
+[node name="atardecer" type="Area" parent="ViewportContainer/Viewport/skybox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.61813, 2.06273 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/skybox/atardecer"]
+shape = SubResource( 6 )
+
+[node name="anochecer" type="Area" parent="ViewportContainer/Viewport/skybox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94316, 2.06273 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/skybox/anochecer"]
+shape = SubResource( 6 )
 
 [node name="player" parent="ViewportContainer/Viewport" instance=ExtResource( 1 )]
 unique_name_in_owner = true
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18129, 2.54122, -0.103214 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.18129, 2.54122, -0.103214 )
 
 [node name="map" type="Spatial" parent="ViewportContainer/Viewport"]
 
@@ -40,7 +143,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.18129, 2.54122, -0.103214 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/StaticBody"]
-shape = SubResource( 4 )
+shape = SubResource( 8 )
 
 [node name="treeLibrary" parent="ViewportContainer/Viewport/map" instance=ExtResource( 5 )]
 
@@ -50,9 +153,11 @@ cull_mask = 256
 script = ExtResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 3 )
+environment = SubResource( 9 )
 
 [node name="Label3D" type="Label3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.03993, 3.73125, -4.71848 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.1823, 3.73125, 0.469903 )
 pixel_size = 0.02
 text = "dream 1"
+
+[connection signal="area_entered" from="ViewportContainer/Viewport/skybox/astralArea/sun/sunArea" to="ViewportContainer/Viewport/skybox" method="_on_sunArea_area_entered"]

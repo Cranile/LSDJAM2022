@@ -8,8 +8,8 @@ export var scenesList = ["res://scenes/maps/testChamber.tscn"]
 var scene  #the first scene on the game
 
 signal figureCollected
-var figurine = 0 ## what character did the player choose?
-var currentDay = 1 ## what day is the player in
+export var figurine = 0 ## what character did the player choose?
+export var currentDay = 1 ## what day is the player in
 var isDream = false
 
 var dailyTaskAmmount = [3,3,2] ##how many task you have to complete per day to go to sleep
@@ -156,13 +156,16 @@ func questUpdater():
 		print("Fin")
 		return;
 	if(currentDay == 1 && figurine == 0):
+		player.currentAmbience(0)
 		mapController.introTriggerEnabled()
 	if(currentDay == 2):
+		player.currentAmbience(0)
 		mapController.day2ITriggerEnabled()
 		mapController.updateStoreInteraction(true)
 		mainMenu.swapPC()
 	
 	if(currentDay == 3):
+		player.currentAmbience(1)
 		##enable storm and trigger on house
 		if mapController == null:
 			mapController = mapContainer.get_child(0)

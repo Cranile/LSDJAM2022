@@ -27,10 +27,17 @@ func updateStoreInteraction(state):
 
 func enableDay3Quest():
 	var day3 = $ViewportContainer/Viewport/map/interactableProps/day3
+	##enable rain sound for day 3
+	##disable door d1 on pl house and enable door d3
+	get_node("ViewportContainer/Viewport/map/plHouse/doorD1").set_deferred("visible",false)
+	var doorD3 = get_node("ViewportContainer/Viewport/map/plHouse/doorD3")
+	doorD3.set_deferred("visible",true)
+	doorD3.get_child(1).get_child(0).disabled = false
 	for prop in day3.get_children():
 		prop.enableInteraction()
 func disableDay3Quest():
 	var day3 = $ViewportContainer/Viewport/map/interactableProps/day3
+	
 	for prop in day3.get_children():
 		prop.disableInteraction()
 
