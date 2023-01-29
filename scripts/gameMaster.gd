@@ -158,7 +158,7 @@ func questUpdater():
 	if(currentDay == 1 && figurine == 0):
 		player.currentAmbience(0)
 		mapController.introTriggerEnabled()
-	if(currentDay == 2):
+	if(currentDay == 2 && currentDayProgress < 2):
 		player.currentAmbience(0)
 		mapController.day2ITriggerEnabled()
 		mapController.updateStoreInteraction(true)
