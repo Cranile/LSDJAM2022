@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://scenes/npc/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shaders/skybox.tres" type="Material" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://dream1/treeLibrary.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/skyboxControler.gd" type="Script" id=6]
 [ext_resource path="res://models/forestSkybox.material" type="Material" id=7]
+[ext_resource path="res://scripts/trigger.gd" type="Script" id=8]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "forestSkybox_Cylinder001"
@@ -60,6 +61,9 @@ emission_on_uv2 = false
 [sub_resource type="BoxShape" id=6]
 extents = Vector3( 0.24413, 0.181828, 0.329244 )
 
+[sub_resource type="BoxShape" id=14]
+extents = Vector3( 3.02948, 0.438136, 3.10669 )
+
 [sub_resource type="CylinderShape" id=8]
 radius = 204.128
 
@@ -71,6 +75,7 @@ fog_depth_curve = 1782.89
 
 [node name="dream1" type="Spatial"]
 script = ExtResource( 4 )
+figureList = [ "res://scenes/npc/bunny.tscn", "res://scenes/npc/penguin.tscn", "res://scenes/npc/ludovico.tscn" ]
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
 anchor_right = 1.0
@@ -139,6 +144,18 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.1812
 
 [node name="map" type="Spatial" parent="ViewportContainer/Viewport"]
 
+[node name="tutorial" type="Area" parent="ViewportContainer/Viewport/map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17049, -0.0789157, -0.138244 )
+collision_layer = 0
+collision_mask = 16
+script = ExtResource( 8 )
+hasDialogue = true
+dialogues = [ "tutorial1Bunny" ]
+selfDisable = true
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/tutorial"]
+shape = SubResource( 14 )
+
 [node name="StaticBody" type="StaticBody" parent="ViewportContainer/Viewport/map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 
@@ -146,6 +163,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
 shape = SubResource( 8 )
 
 [node name="treeLibrary" parent="ViewportContainer/Viewport/map" instance=ExtResource( 5 )]
+
+[node name="figureSpawnPoint" type="Spatial" parent="ViewportContainer/Viewport/map"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10018, 0, 0 )
+
+[node name="waveTimer" type="Timer" parent="ViewportContainer/Viewport/map/figureSpawnPoint"]
+one_shot = true
 
 [node name="skyboxCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -22.0863, -0.0790062 )
@@ -157,7 +180,10 @@ environment = SubResource( 9 )
 
 [node name="Label3D" type="Label3D" parent="."]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.1823, 3.73125, 0.469903 )
+visible = false
 pixel_size = 0.02
 text = "dream 1"
 
 [connection signal="area_entered" from="ViewportContainer/Viewport/skybox/astralArea/sun/sunArea" to="ViewportContainer/Viewport/skybox" method="_on_sunArea_area_entered"]
+[connection signal="body_entered" from="ViewportContainer/Viewport/map/tutorial" to="ViewportContainer/Viewport/map/tutorial" method="_on_trigger_body_entered"]
+[connection signal="timeout" from="ViewportContainer/Viewport/map/figureSpawnPoint/waveTimer" to="." method="_on_Timer_timeout"]

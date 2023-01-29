@@ -1,0 +1,79 @@
+{
+	"events": [
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey !"
+		},
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You finally arrived, we were waiting for you"
+		},
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Welcome to Dream Land ! ! "
+		},
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "If you are here that means that you wanted to explore some new cool places."
+		},
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Maybe get some inspiration for your work"
+		},
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Since you decided to come yourself you can leave at any time!"
+		},
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "but pay attention because this is really important. To leave you need to follow these steps . . ."
+		},
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Close your eyes as hard as you can, and when you feel they are completely closed, open them as fast as you can, that should wake you up."
+		},
+		{
+			"character": "character-1675008378.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Press SPACEBAR and hold it until you cant see anything, then press ENTER.\nDo this ONLY when you want to exit the dream. Dreams cant be re entered in this version."
+		},
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Welp, i hope you enjoy your time here, and remember, you are not alone on these dreams so interact with as many people as you want, and share your experiences with everyone, -some say that the DreamLand grows the more people think about it-"
+		},
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Byee~~"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1674939917.json",
+		"name": "tutorial1Bunny"
+	}
+}

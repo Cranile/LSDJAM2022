@@ -57,10 +57,7 @@ border_blend = true
 
 [node name="main" type="Node" groups=["main"]]
 script = ExtResource( 4 )
-debugMode = true
 scenesList = [ "res://scenes/maps/testChamber.tscn", "res://scenes/maps/dream1.tscn", "res://scenes/maps/dream2.tscn", "res://scenes/maps/dream3.tscn" ]
-figurine = 1
-levelIndex = 1
 
 [node name="PSXLayer" type="CanvasLayer" parent="."]
 layer = 0
