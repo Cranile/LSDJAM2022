@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://dream2/dream2.glb" type="PackedScene" id=1]
+
+[node name="dream2" instance=ExtResource( 1 )]

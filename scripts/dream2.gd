@@ -1,17 +1,19 @@
 extends Spatial
 
 var dreamID = 2
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var ladder1
+var ladder2
+onready var main = get_node("/root/main")
 func getDreamID():
 	return dreamID
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	ladder1 = $ViewportContainer/Viewport/map/teleportPoints/spawnPoint.translation
+	ladder2 = $ViewportContainer/Viewport/map/teleportPoints/house.translation
+	main.enableMusic("dam")
+func returnLadderPos(ladderName):
+	if (ladderName == "spawn"):
+		return ladder1
+	if (ladderName == "house"):
+		return ladder2

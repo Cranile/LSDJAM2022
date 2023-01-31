@@ -119,6 +119,7 @@ func changeCrossHair(type):
 	crossHair.changeCrosshair(type)
 
 func newDialogue(timelineName):
+	print("dialogue")
 	currentDialogue = Dialogic.start(timelineName)
 	currentDialogue.connect("timeline_end", self, "endConversation")
 	add_child(currentDialogue)
@@ -146,6 +147,12 @@ func eyelidsUpdate(state):
 		animationPlaySpeed = 5
 		$eyes/AnimationPlayer.set_speed_scale(animationPlaySpeed)
 		$eyes/AnimationPlayer.play_backwards("blink")
+
+func playBackwards():
+	print("asni")
+	animationPlaySpeed = 5
+	$eyes/AnimationPlayer.set_speed_scale(animationPlaySpeed)
+	$eyes/AnimationPlayer.play_backwards("blink")
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	##anim end

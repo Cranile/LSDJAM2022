@@ -1,4 +1,4 @@
-[gd_scene load_steps=1112 format=2]
+[gd_scene load_steps=1116 format=2]
 
 [ext_resource path="res://scenes/npc/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/props/skybox.tscn" type="PackedScene" id=2]
@@ -129,6 +129,8 @@
 [ext_resource path="res://imports/bulding1.material" type="Material" id=127]
 [ext_resource path="res://imports/asphalt_001.material" type="Material" id=128]
 [ext_resource path="res://textures/storeClerk.png" type="Texture" id=129]
+[ext_resource path="res://textures/rain.png" type="Texture" id=130]
+[ext_resource path="res://shaders/scrollTextureShader.tres" type="Shader" id=131]
 
 [sub_resource type="SpatialMaterial" id=11]
 flags_transparent = true
@@ -19414,6 +19416,25 @@ extents = Vector3( 0.478473, 1, 1.8913 )
 [sub_resource type="BoxShape" id=983]
 extents = Vector3( 0.322412, 0.423535, 0.295964 )
 
+[sub_resource type="ShaderMaterial" id=987]
+shader = ExtResource( 131 )
+shader_param/direction_and_speed = Vector2( 0, 2 )
+shader_param/scale = Vector2( 5, 4 )
+shader_param/flip = false
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/specular = 0.5
+shader_param/metallic = 0.0
+shader_param/roughness = 1.0
+shader_param/point_size = 1.0
+shader_param/uv1_scale = Vector3( 1, 1, 1 )
+shader_param/uv1_offset = Vector3( 0, 0, 0 )
+shader_param/uv2_scale = Vector3( 1, 1, 1 )
+shader_param/uv2_offset = Vector3( 0, 0, 0 )
+shader_param/texture_albedo = ExtResource( 130 )
+
+[sub_resource type="PlaneMesh" id=986]
+material = SubResource( 987 )
+
 [sub_resource type="Environment" id=976]
 ambient_light_color = Color( 1, 1, 1, 1 )
 ambient_light_energy = 0.8
@@ -19433,6 +19454,7 @@ size = Vector2( 320, 240 )
 transparent_bg = true
 handle_input_locally = false
 render_target_update_mode = 3
+audio_listener_enable_3d = true
 
 [node name="skybox2" parent="ViewportContainer/Viewport" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0211499, -23.8912, -0.17873 )
@@ -23838,6 +23860,11 @@ shape = SubResource( 982 )
 [node name="CollisionShape6" type="CollisionShape" parent="ViewportContainer/Viewport/map/plHouse/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.43629, 0.395041, 3.64136 )
 shape = SubResource( 983 )
+
+[node name="rain" type="MeshInstance" parent="ViewportContainer/Viewport/map"]
+transform = Transform( -1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 41.6061, 1.9106, 60.0598 )
+visible = false
+mesh = SubResource( 986 )
 
 [node name="skyboxCamera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -22.0863, -0.0790062 )

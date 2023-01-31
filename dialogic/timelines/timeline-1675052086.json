@@ -1,0 +1,33 @@
+{
+	"events": [
+		{
+			"character": "character-1675052066.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "hi there"
+		},
+		{
+			"character": "character-1675052066.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "you must be new here"
+		},
+		{
+			"character": "character-1675052066.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "did you enjoy the library?"
+		},
+		{
+			"character": "character-1675052066.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "probably not, it's been a bit since the books where readable. The creator has still some work to do in this world. \nI hope he does it soon, i love this place but sometimes it feels somewhat lacking."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1675052086.json",
+		"name": "shrooman1"
+	}
+}

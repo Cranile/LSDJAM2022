@@ -1,8 +1,8 @@
 extends KinematicBody
 
 var mouse_sens = 0.05 #camera movement speed
-var move_speed = 10 # player walking speed
-var gravity = 20 # gravity strenght
+var move_speed = 15 # player walking speed
+var gravity = 30 # gravity strenght
 
 var direction = Vector3()
 var gravity_vec = Vector3()
@@ -34,6 +34,7 @@ func _ready():
 	main.setPlayer(self)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	emit_signal("crossHairActive","default")
+	
 	pass # Replace with function body.
 
 func _input(event):

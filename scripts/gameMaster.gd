@@ -10,7 +10,7 @@ var scene  #the first scene on the game
 signal figureCollected
 export var figurine = 0 ## what character did the player choose?
 export var currentDay = 1 ## what day is the player in
-var isDream = false
+export var isDream = false
 
 var dailyTaskAmmount = [3,3,2] ##how many task you have to complete per day to go to sleep
 var currentDayProgress = 1
@@ -87,6 +87,7 @@ func setPlayer(param):
 	mainMenu.connect("lidState",player,"lidsUpdated")
 	player.canBlink = isDream
 	setSensitivity()
+	mainMenu.playBackwards()
 	if debugMode:
 		player.connect("interactableName",mainMenu,"debugLabelUpdate")
 		pass
@@ -163,7 +164,6 @@ func questUpdater():
 		mapController.day2ITriggerEnabled()
 		mapController.updateStoreInteraction(true)
 		mainMenu.swapPC()
-	
 	if(currentDay == 3):
 		player.currentAmbience(1)
 		##enable storm and trigger on house
@@ -179,3 +179,16 @@ func questUpdater():
 		emit_signal("bedUpdate",tasksFinished)
 		return
 
+func enableMusic(songType):
+	if(songType == "forest"):
+		player.currentAmbience(0)
+	if(songType == "dam"):
+		player.currentAmbience(2)
+
+func callDreamFigureRemove():
+	if currentLevel.has_method("removeFigure") :
+		currentLevel.removeFigure()
+
+func teleportPlayer(position):
+	player.set_translation( position )
+	print("teleport pl")

@@ -21,6 +21,7 @@ export var methodName = ""
 var main 
 func _ready():
 		main = get_node("/root/main")
+		print("prop ",propName ," ready")
 		pass # Replace with function body.
 
 func getMapIndex():
@@ -44,6 +45,7 @@ func interaction():
 		if(deleteOnPickup):
 			deleteSelf()
 	if(hasDialogue):
+		print("call dialogue on prop")
 		main.queueNewDialogue(dialogues[dialogueIndex])
 		
 	if(hasCustomMethod):
