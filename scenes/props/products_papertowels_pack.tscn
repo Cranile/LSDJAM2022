@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://models/products_papertowels_pack.glb" type="PackedScene" id=1]
+
+[node name="products_papertowels_pack" instance=ExtResource( 1 )]

@@ -182,8 +182,12 @@ func questUpdater():
 func enableMusic(songType):
 	if(songType == "forest"):
 		player.currentAmbience(0)
+	if(songType == "rain"):
+		player.currentAmbience(1)
 	if(songType == "dam"):
 		player.currentAmbience(2)
+	if(songType == "strong"):
+		player.currentAmbience(3)
 
 func callDreamFigureRemove():
 	if currentLevel.has_method("removeFigure") :

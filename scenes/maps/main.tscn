@@ -59,9 +59,9 @@ border_blend = true
 script = ExtResource( 4 )
 scenesList = [ "res://scenes/maps/testChamber.tscn", "res://scenes/maps/dream1.tscn", "res://scenes/maps/dream2.tscn", "res://scenes/maps/dream3.tscn" ]
 figurine = 1
-currentDay = 2
+currentDay = 3
 isDream = true
-levelIndex = 2
+levelIndex = 3
 
 [node name="PSXLayer" type="CanvasLayer" parent="."]
 layer = 0

@@ -23,6 +23,10 @@
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "probably not, it's been a bit since the books where readable. The creator has still some work to do in this world. \nI hope he does it soon, i love this place but sometimes it feels somewhat lacking."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
 		}
 	],
 	"metadata": {
