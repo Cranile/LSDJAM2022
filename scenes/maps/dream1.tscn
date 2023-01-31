@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=2]
+[gd_scene load_steps=132 format=2]
 
 [ext_resource path="res://scenes/npc/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shaders/skybox.tres" type="Material" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://dream1/woodGrain.material" type="Material" id=13]
 [ext_resource path="res://dream1/treeBark.material" type="Material" id=14]
 [ext_resource path="res://dream1/marbleGround.material" type="Material" id=15]
-[ext_resource path="res://dream1/interiorWall.material" type="Material" id=16]
 [ext_resource path="res://models/treeGround.tres" type="ArrayMesh" id=17]
 [ext_resource path="res://dream1/bridgeStump.material" type="Material" id=18]
 [ext_resource path="res://shaders/rain.tres" type="Material" id=19]
@@ -97,6 +96,18 @@ extents = Vector3( 297.516, 1, 232.441 )
 [sub_resource type="BoxShape" id=14]
 extents = Vector3( 3.02948, 0.438136, 3.10669 )
 
+[sub_resource type="BoxShape" id=100]
+extents = Vector3( 9.52176, 1, 1 )
+
+[sub_resource type="BoxShape" id=101]
+extents = Vector3( 0.741747, 1.42898, 7.32936 )
+
+[sub_resource type="BoxShape" id=102]
+extents = Vector3( 1, 1, 3.46365 )
+
+[sub_resource type="BoxShape" id=103]
+extents = Vector3( 4.44992, 1, 4.58743 )
+
 [sub_resource type="ArrayMesh" id=56]
 resource_name = "treeLibrary_Circle"
 surfaces/0 = {
@@ -118,7 +129,7 @@ surfaces/1 = {
 "blend_shape_data": [  ],
 "format": 2194711,
 "index_count": 294,
-"material": ExtResource( 16 ),
+"material": ExtResource( 20 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 178
@@ -1360,6 +1371,60 @@ surfaces/2 = {
 "vertex_count": 80
 }
 
+[sub_resource type="BoxShape" id=82]
+extents = Vector3( 31.1549, 4.35833, 18.8923 )
+
+[sub_resource type="BoxShape" id=83]
+extents = Vector3( 7.99359, 2.73139, 20.4628 )
+
+[sub_resource type="BoxShape" id=84]
+extents = Vector3( 13.0377, 2.51603, 17.3661 )
+
+[sub_resource type="BoxShape" id=85]
+extents = Vector3( 17.339, 3, 23.1419 )
+
+[sub_resource type="BoxShape" id=86]
+extents = Vector3( 17.6529, 4.06288, 5 )
+
+[sub_resource type="BoxShape" id=87]
+extents = Vector3( 48.3123, 3.68794, 32.1948 )
+
+[sub_resource type="BoxShape" id=88]
+extents = Vector3( 24.4513, 5.19188, 20.7783 )
+
+[sub_resource type="BoxShape" id=89]
+extents = Vector3( 47.5647, 4, 67 )
+
+[sub_resource type="BoxShape" id=90]
+extents = Vector3( 32.3779, 4.80803, 19.9167 )
+
+[sub_resource type="BoxShape" id=91]
+extents = Vector3( 67.7404, 2.37025, 18.1977 )
+
+[sub_resource type="BoxShape" id=92]
+extents = Vector3( 17.9565, 4, 4.62327 )
+
+[sub_resource type="BoxShape" id=93]
+extents = Vector3( 20.3614, 5, 4 )
+
+[sub_resource type="BoxShape" id=94]
+extents = Vector3( 13.3934, 3, 10 )
+
+[sub_resource type="BoxShape" id=95]
+extents = Vector3( 23, 4, 28 )
+
+[sub_resource type="BoxShape" id=96]
+extents = Vector3( 7, 3, 7 )
+
+[sub_resource type="BoxShape" id=97]
+extents = Vector3( 37.262, 4.62651, 22.6355 )
+
+[sub_resource type="BoxShape" id=98]
+extents = Vector3( 9.17115, 8.32675, 23.287 )
+
+[sub_resource type="BoxShape" id=99]
+extents = Vector3( 9.26239, 5, 6.62481 )
+
 [sub_resource type="BoxShape" id=66]
 extents = Vector3( 4.7651, 1, 5.69956 )
 
@@ -1383,6 +1448,9 @@ extents = Vector3( 17.0442, 2.98939, 17.1151 )
 
 [sub_resource type="BoxShape" id=77]
 extents = Vector3( 14.9809, 5.08105, 1 )
+
+[sub_resource type="BoxShape" id=104]
+extents = Vector3( 16.2446, 3.40718, 15.5161 )
 
 [sub_resource type="ShaderMaterial" id=79]
 shader = ExtResource( 9 )
@@ -1538,6 +1606,171 @@ shape = SubResource( 14 )
 [node name="treeLibrary" type="Spatial" parent="ViewportContainer/Viewport/map"]
 transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0 )
 
+[node name="StaticBody" type="StaticBody" parent="ViewportContainer/Viewport/map/treeLibrary"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( 0.979712, 0, -0.200411, 0, 1, 0, 0.200411, 0, 0.979712, 9.12538, 1.44038, -45.4571 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( 0.825901, 0, -0.563814, 0, 1, 0, 0.563814, 0, 0.825901, 25.7488, 1.44038, -38.4355 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( 0.547811, 0, -0.836602, 0, 1, 0, 0.836602, 0, 0.547811, 38.1902, 1.44038, -26.0074 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( 0.980247, 0, 0.197777, 0, 1, 0, -0.197777, 0, 0.980247, -8.94543, 1.44038, -45.4571 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( 0.835663, 0, 0.549242, 0, 1, 0, -0.549242, 0, 0.835663, -25.4268, 1.44038, -38.7675 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( -0.178682, 0, 0.983907, 0, 1, 0, -0.983907, 0, -0.178682, -45.339, 1.44038, 8.61572 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( 0.17705, 0, 0.984202, 0, 1, 0, -0.984202, 0, 0.17705, -45.4998, 1.44038, -9.42564 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( 0.539667, 0, 0.841878, 0, 1, 0, -0.841878, 0, 0.539667, -38.3649, 1.44038, -25.8598 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( -0.559468, 0, 0.828852, 0, 1, 0, -0.828852, 0, -0.559468, -38.4961, 1.44038, 25.6634 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape10" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( -0.827189, 0, 0.561925, 0, 1, 0, -0.561925, 0, -0.827189, -26.1065, 1.44038, 38.2577 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape11" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( -0.983427, 0, 0.181309, 0, 1, 0, -0.181309, 0, -0.983427, -9.35365, 1.44038, 45.2865 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape12" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( -0.979516, 0, -0.201369, 0, 1, 0, 0.201369, 0, -0.979516, 8.78451, 1.44038, 45.4375 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape13" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( -0.827914, 0, -0.560856, 0, 1, 0, 0.560856, 0, -0.827914, 25.7726, 1.44038, 38.5047 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape14" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( -0.558281, 0, -0.829652, 0, 1, 0, 0.829652, 0, -0.558281, 38.4754, 1.44038, 25.6814 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape15" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( 0.978574, 0, 0.205897, 0, 1, 0, -0.205897, 0, 0.978574, 45.3965, 1.25787, -11.1852 )
+shape = SubResource( 101 )
+
+[node name="CollisionShape16" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody"]
+transform = Transform( 0.978581, 0, -0.205863, 0, 1, 0, 0.205863, 0, 0.978581, 45.1176, 1.25787, 11.4627 )
+shape = SubResource( 101 )
+
+[node name="StaticBody2" type="StaticBody" parent="ViewportContainer/Viewport/map/treeLibrary"]
+transform = Transform( 0.688442, 0, 0, 0, 1, 0, 0, 0, 0.700346, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( 0.979712, 0, -0.200411, 0, 1, 0, 0.200411, 0, 0.979712, 9.12538, 1.44038, -45.4571 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( 0.825901, 0, -0.563814, 0, 1, 0, 0.563814, 0, 0.825901, 25.7488, 1.44038, -38.4355 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( 0.209058, 0, -0.98016, 0, 1, 0, 0.973475, 0, 0.219268, 45.7595, 1.44038, -8.77183 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( 0.980247, 0, 0.197777, 0, 1, 0, -0.197777, 0, 0.980247, -8.94543, 1.44038, -45.4571 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( 0.835663, 0, 0.549242, 0, 1, 0, -0.549242, 0, 0.835663, -25.4268, 1.44038, -38.7675 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( -0.178682, 0, 0.983907, 0, 1, 0, -0.983907, 0, -0.178682, -45.339, 1.44038, 8.61572 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( 0.17705, 0, 0.984202, 0, 1, 0, -0.984202, 0, 0.17705, -45.4998, 1.44038, -9.42564 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape10" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( -0.827189, 0, 0.561925, 0, 1, 0, -0.561925, 0, -0.827189, -26.1065, 1.44038, 38.2577 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape11" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( -0.983427, 0, 0.181309, 0, 1, 0, -0.181309, 0, -0.983427, -9.35365, 1.44038, 45.2865 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape12" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( -0.979516, 0, -0.201369, 0, 1, 0, 0.201369, 0, -0.979516, 8.78451, 1.44038, 45.4375 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape13" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( -0.827914, 0, -0.560856, 0, 1, 0, 0.560856, 0, -0.827914, 25.7726, 1.44038, 38.5047 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape14" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( -0.210488, 0, -0.979986, 0, 1, 0, 0.972978, 0, -0.220905, 45.6546, 1.44038, 9.56005 )
+shape = SubResource( 100 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( 0.809017, 0, 0.597949, 0, 1, 0, -0.577795, 0, 0.809018, -42.4644, 1.01023, 20.3473 )
+shape = SubResource( 102 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( 0.809017, 0, 0.597949, 0, 1, 0, -0.577795, 0, 0.809018, -35.4338, 1.01023, 31.1686 )
+shape = SubResource( 102 )
+
+[node name="CollisionShape15" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( 0.838215, 0, -0.554773, 0, 1, 0, 0.536072, 0, 0.838216, -35.3535, 1.01023, -30.4528 )
+shape = SubResource( 102 )
+
+[node name="CollisionShape16" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( 0.838215, 0, -0.554773, 0, 1, 0, 0.536072, 0, 0.838216, -43.12, 1.01023, -20.1291 )
+shape = SubResource( 102 )
+
+[node name="CollisionShape17" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( -0.83405, 0, -0.561231, 0, 1, 0, 0.542313, 0, -0.834053, 42.5082, 1.01024, -20.2461 )
+shape = SubResource( 102 )
+
+[node name="CollisionShape18" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( -0.83405, 0, -0.561231, 0, 1, 0, 0.542313, 0, -0.834053, 35.2752, 1.01024, -30.6434 )
+shape = SubResource( 102 )
+
+[node name="CollisionShape19" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( -0.82286, 0, 0.578075, 0, 1.00001, 0, -0.558587, 0, -0.822862, 35.1717, 1.01024, 31.4329 )
+shape = SubResource( 102 )
+
+[node name="CollisionShape20" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( -0.82286, 0, 0.578075, 0, 1.00001, 0, -0.558587, 0, -0.822862, 42.2897, 1.01024, 20.9591 )
+shape = SubResource( 102 )
+
+[node name="CollisionShape21" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8107, 0.801929, -22.3762 )
+shape = SubResource( 103 )
+
+[node name="CollisionShape22" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.8107, 0.801929, 23.3854 )
+shape = SubResource( 103 )
+
+[node name="CollisionShape23" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6144, 0.80193, -6.84786 )
+shape = SubResource( 103 )
+
+[node name="CollisionShape24" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/StaticBody2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.6595, 0.801931, 1.08273 )
+shape = SubResource( 103 )
+
 [node name="library" type="MeshInstance" parent="ViewportContainer/Viewport/map/treeLibrary"]
 mesh = SubResource( 56 )
 
@@ -1552,6 +1785,7 @@ mesh = SubResource( 58 )
 mesh = SubResource( 59 )
 
 [node name="exteriorBookShelf" type="MeshInstance" parent="ViewportContainer/Viewport/map/treeLibrary"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.386061, 0 )
 mesh = SubResource( 60 )
 
 [node name="bookShelfSeamless004" type="MeshInstance" parent="ViewportContainer/Viewport/map/treeLibrary"]
@@ -1766,7 +2000,79 @@ mesh = SubResource( 54 )
 transform = Transform( 0, 0.328371, 0, -0.520875, 0, 0, 0, 0, -1.3323, 104.387, -0.88269, -44.6 )
 mesh = SubResource( 55 )
 
-[node name="StaticBody" type="StaticBody" parent="ViewportContainer/Viewport/map/treeLibrary"]
+[node name="riverWalls" type="StaticBody" parent="ViewportContainer/Viewport/map/treeLibrary"]
+
+[node name="CollisionShape" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.81657, 1.72348, 78.7751 )
+shape = SubResource( 82 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 48.3091, 2.05698, 72.6481 )
+shape = SubResource( 83 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 3.33333, 70.2323 )
+shape = SubResource( 84 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 99.2578, 2.22222, 74.9772 )
+shape = SubResource( 85 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 107.285, 1.07358, 46.3986 )
+shape = SubResource( 86 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 155.735, 2.31363, 63.9373 )
+shape = SubResource( 87 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 153.568, 0, 109.74 )
+shape = SubResource( 88 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -113.333, 2.22222, 4.44444 )
+shape = SubResource( 89 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 0.941482, 0, -0.337062, 0, 1, 0, 0.337062, 0, 0.941482, -47.9595, 3.54186, 65.5556 )
+shape = SubResource( 90 )
+
+[node name="CollisionShape10" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25394, -69.596 )
+shape = SubResource( 91 )
+
+[node name="CollisionShape11" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -69.8483, 1.11111, -94.1555 )
+shape = SubResource( 92 )
+
+[node name="CollisionShape12" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 0.581527, 0, 0.813527, 0, 1, 0, -0.813527, 0, 0.581527, -98.6579, 0, -77.4591 )
+shape = SubResource( 93 )
+
+[node name="CollisionShape13" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -55.3536, 0, -42.2222 )
+shape = SubResource( 94 )
+
+[node name="CollisionShape14" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 81.1111, 3.33333, -51.1111 )
+shape = SubResource( 95 )
+
+[node name="CollisionShape15" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 91.1111, 2.22222, -81.1111 )
+shape = SubResource( 96 )
+
+[node name="CollisionShape16" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 159.101, 3.19622, -64.8379 )
+shape = SubResource( 97 )
+
+[node name="CollisionShape17" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 124.091, 4.81414, -45.8308 )
+shape = SubResource( 98 )
+
+[node name="CollisionShape18" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/riverWalls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 143.333, 2.22222, -37.9621 )
+shape = SubResource( 99 )
 
 [node name="bridgeCol1" type="StaticBody" parent="ViewportContainer/Viewport/map/treeLibrary"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 52.6146, -0.0823148, 69.6172 )
@@ -1899,7 +2205,7 @@ transform = Transform( 0.0214659, 0, 0.99977, 0, 1, 0, -0.99977, 0, 0.0214659, 1
 shape = SubResource( 77 )
 
 [node name="CollisionShape12" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/walls"]
-transform = Transform( -0.855093, 0, 0.518475, 0, 1, 0, -0.518475, 0, -0.855093, 188.889, 5.7413, 20.0096 )
+transform = Transform( -0.226889, 0, 0.973921, 0, 1, 0, -0.973921, 0, -0.226889, 179.82, 5.7413, 23.7846 )
 shape = SubResource( 77 )
 
 [node name="CollisionShape13" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/walls"]
@@ -1917,6 +2223,10 @@ shape = SubResource( 77 )
 [node name="CollisionShape7" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/walls"]
 transform = Transform( -0.961011, 0, 0.27651, 0, 1, 0, -0.27651, 0, -0.961011, -177.589, 5.23095, -106.721 )
 shape = SubResource( 77 )
+
+[node name="CollisionShape14" type="CollisionShape" parent="ViewportContainer/Viewport/map/treeLibrary/walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.5239, 0.899427, -103.314 )
+shape = SubResource( 104 )
 
 [node name="figureSpawnPoint" type="Spatial" parent="ViewportContainer/Viewport/map"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.10018, 0, 0 )
