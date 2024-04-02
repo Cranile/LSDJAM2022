@@ -1,0 +1,37 @@
+{
+	"events": [
+		{
+			"character": "character-1675052989.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "hi"
+		},
+		{
+			"character": "character-1675052989.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "did you hear? The mage and the artist have left."
+		},
+		{
+			"character": "character-1675052989.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I wonder when they will come back"
+		},
+		{
+			"character": "character-1675052989.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I hope the creator does something about this, it's been quite lonely in here lately."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1675052981.json",
+		"name": "shrooman2"
+	}
+}

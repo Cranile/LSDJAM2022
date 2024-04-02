@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://textures/pc/mockupBrowser.png" type="Texture" id=1]
+
+[node name="internetBrowser" type="TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -432.0
+margin_top = -288.0
+margin_right = 432.0
+margin_bottom = 288.0
+texture = ExtResource( 1 )
+stretch_mode = 1
+
+[node name="h1" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.192
+anchor_right = 0.5
+anchor_bottom = 0.238
+margin_left = -20.0
+margin_right = 20.0
+margin_bottom = 37.0
+
+[node name="p1" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -332.0
+margin_top = -163.0
+margin_right = 347.0
+margin_bottom = 181.0
+
+[node name="exitPC" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -183.0
+margin_top = -107.0
+margin_right = -85.0
+margin_bottom = -64.0
+text = "exit"

@@ -1,0 +1,69 @@
+[gd_scene format=2]
+
+[node name="slider" type="Control"]
+margin_left = 82.0
+margin_right = 409.0
+margin_bottom = 46.0
+rect_pivot_offset = Vector2( 100, 0 )
+
+[node name="title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -17.5
+margin_right = 17.5
+margin_bottom = 14.0
+text = "scroll"
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -178.0
+margin_right = 178.0
+margin_bottom = 40.0
+
+[node name="minValue" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -164.269
+margin_top = -7.0
+margin_right = -124.269
+margin_bottom = 7.00001
+text = "X"
+align = 2
+valign = 1
+
+[node name="HSlider" type="HSlider" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -121.5
+margin_top = -8.0
+margin_right = 121.5
+margin_bottom = 8.0
+
+[node name="maxValue" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 122.0
+margin_top = -7.0
+margin_right = 162.0
+margin_bottom = 7.0
+text = "X"
+valign = 1
+
+[node name="currentValue" type="Label" parent="Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -20.0
+margin_top = -14.0
+margin_right = 20.0
+text = "X"
+align = 1
+valign = 1

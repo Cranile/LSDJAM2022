@@ -1,0 +1,189 @@
+{
+	"files": [
+
+	],
+	"folders": {
+		"Characters": {
+			"files": [
+				"character-1671633813.json",
+				"character-1673982072.json",
+				"character-1674940020.json",
+				"character-1675008378.json",
+				"character-1675010745.json",
+				"character-1675052066.json",
+				"character-1675052989.json",
+				"character-1675201464.json"
+			],
+			"folders": {
+
+			},
+			"metadata": {
+				"color": null,
+				"folded": false
+			}
+		},
+		"Definitions": {
+			"files": [
+
+			],
+			"folders": {
+
+			},
+			"metadata": {
+				"color": null,
+				"folded": false
+			}
+		},
+		"Themes": {
+			"files": [
+				"default-theme.cfg"
+			],
+			"folders": {
+
+			},
+			"metadata": {
+				"color": null,
+				"folded": false
+			}
+		},
+		"Timelines": {
+			"files": [
+				"timeline-1675201448.json"
+			],
+			"folders": {
+				"bed": {
+					"files": [
+						"timeline-1673658131.json",
+						"timeline-1673658898.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"dream1": {
+					"files": [
+						"timeline-1674939917.json",
+						"timeline-1675052086.json",
+						"timeline-1675052981.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"dream2": {
+					"files": [
+						"timeline-1675147353.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"mapSwapTest": {
+					"files": [
+						"timeline-1672517384.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
+				"narrationCity": {
+					"files": [
+						"timeline-1673994191.json"
+					],
+					"folders": {
+						"day1": {
+							"files": [
+								"timeline-1673719806.json",
+								"timeline-1673720100.json",
+								"timeline-1674005593.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": true
+							}
+						},
+						"day2": {
+							"files": [
+								"timeline-1673967724.json",
+								"timeline-1673967769.json",
+								"timeline-1673982063.json",
+								"timeline-1674004782.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": true
+							}
+						},
+						"day3": {
+							"files": [
+								"timeline-1673992445.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": true
+							}
+						}
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"testNpc": {
+					"files": [
+						"timeline-1671633806.json",
+						"timeline-1672086924.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
+				"testTrigger": {
+					"files": [
+						"timeline-1673538769.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				}
+			},
+			"metadata": {
+				"color": null,
+				"folded": false
+			}
+		}
+	}
+}

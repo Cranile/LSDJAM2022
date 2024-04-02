@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scripts/playerController.gd" type="Script" id=1]
+[ext_resource path="res://audio/sfx/footstep-01.ogg" type="AudioStream" id=2]
+
+[sub_resource type="CapsuleShape" id=11]
+radius = 0.5
+
+[sub_resource type="CapsuleMesh" id=12]
+radius = 0.5
+
+[node name="player" type="KinematicBody"]
+collision_layer = 16
+script = ExtResource( 1 )
+ambienceList = [ "res://audio/music/Ambiance_Forest_Birds_Loop_Stereo.wav", "res://audio/music/Ambiance_Rain_Strong_Loop_Stereo.wav", "res://audio/music/Ambiance_River_Moderate_Loop_Stereo.wav", "res://audio/music/Ambiance_Waterfall_Strong_Loop_Stereo.wav" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
+shape = SubResource( 11 )
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="plAmbience" type="AudioStreamPlayer" parent="Spatial"]
+unique_name_in_owner = true
+volume_db = -5.0
+autoplay = true
+
+[node name="plAudioStep" type="AudioStreamPlayer" parent="Spatial"]
+unique_name_in_owner = true
+stream = ExtResource( 2 )
+volume_db = -1.0
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
+mesh = SubResource( 12 )
+
+[node name="plHead" type="Spatial" parent="Spatial"]
+unique_name_in_owner = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.644, 0 )
+
+[node name="Camera" type="Camera" parent="Spatial/plHead"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0583973, -0.337362 )
+cull_mask = 1048319
+far = 200.0
+
+[node name="raycast" type="RayCast" parent="Spatial/plHead"]
+enabled = true
+cast_to = Vector3( 0, 0, -3 )
+collision_mask = 6
+collide_with_areas = true
+
+[node name="plStep_timer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
