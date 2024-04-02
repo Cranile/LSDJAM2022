@@ -98,9 +98,14 @@ _global_script_class_icons={
 
 [application]
 
-config/name="LSDJam2022"
+config/name="DreamLand"
 run/main_scene="res://scenes/maps/main.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://cranileLogo.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://dreamLandLogo.png"
+config/macos_native_icon="res://dreamLandLogo.png"
+config/windows_native_icon="res://dreamLandLogo.png"
 
 [display]
 

@@ -12,3 +12,4 @@ func _ready():
 func setCurrentValue(sensitivityValue):
 	slider.value = sensitivityValue;
 	currentValue.text = String (sensitivityValue);
+	

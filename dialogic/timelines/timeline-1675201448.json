@@ -1,0 +1,55 @@
+{
+	"events": [
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hi again."
+		},
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I hope you enjoyed this little adventure."
+		},
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I got a word from The Creator for you"
+		},
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "They says you arrived in somewhat of a bad time, and the Dream Lands were missing some of it's contents."
+		},
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You will need to wait for a little bit to see an improved version .  . ."
+		},
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "The Creator says it was a really difficult project and even if it didn't look exactly like their dreams, it carries the esence of those places. . ."
+		},
+		{
+			"character": "character-1675010745.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Now you should go, there is a lot of other Creators out there, with really interesting Dream Lands."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1675201448.json",
+		"name": "end"
+	}
+}

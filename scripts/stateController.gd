@@ -3,6 +3,7 @@ extends Spatial
 var figures = []
 onready var main = get_node("/root/main")
 var superMarket
+
 func _ready():
 	main.mapController = self
 	superMarket = $ViewportContainer/Viewport/map/interactableProps/superMarket
@@ -50,3 +51,7 @@ func day2IntroTriggerDisabled():
 	$ViewportContainer/Viewport/map/interactableProps/day2Intro.disableInteraction()
 func day2ITriggerEnabled():
 	$ViewportContainer/Viewport/map/interactableProps/day2Intro.enableInteraction()
+
+func endDay():
+	var endDay = get_node("ViewportContainer/Viewport/map/endDay")
+	endDay.start()

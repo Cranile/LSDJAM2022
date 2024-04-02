@@ -155,6 +155,7 @@ func rainTrigger():
 func questUpdater():
 	if(currentDay > dailyTaskAmmount.size()):
 		print("Fin")
+		mapController.endDay()
 		return;
 	if(currentDay == 1 && figurine == 0):
 		player.currentAmbience(0)
@@ -170,6 +171,7 @@ func questUpdater():
 		if mapController == null:
 			mapController = mapContainer.get_child(0)
 		mapController.enableDay3Quest()
+
 	##check if maximum is reach
 	##add new task
 	##OR
